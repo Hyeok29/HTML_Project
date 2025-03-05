@@ -1,0 +1,1822 @@
+
+<!DOCTYPE html>
+<html lang="ko" class="loading dark-layout" data-layout="dark-layout" data-textdirection="ltr">
+
+<head>
+    <!-- config fragment 사용 -->
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description"
+              content="sigrrow station">
+        <meta name="keywords"
+              content="sigrrow station">
+        <title>sigrrow | station</title>
+        <link rel="apple-touch-icon" href="">
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="apple-mobile-web-app-title" content="sigrrow station">
+        <meta name="application-name" content="sigrrow station">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+        <!-- favicon -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTR7CC6SQX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZTR7CC6SQX');
+        </script>
+
+        <!-- Montserrat-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+              rel="stylesheet">
+        <!-- Montserrat-->
+
+        <!-- Noto Sans KR -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+              rel="stylesheet">
+        <!-- Noto Sans KR -->
+
+        <!-- BEGIN: Vendor CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+        <!-- END: Vendor CSS-->
+
+        <!-- BEGIN: Theme CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/components.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.min.css">
+
+
+        <!-- BEGIN: Page CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
+        <!-- END: Page CSS-->
+
+        <!-- BEGIN: Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <!-- BEGIN: Vendor JS-->
+        <script src="app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        
+        
+    
+
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/charts/apexcharts.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/extensions/toastr.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/charts/chart-apex.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/extensions/ext-component-toastr.min.css">
+    
+
+        <!-- text fit -->
+        <script src="assets/vendors/jquery.textFit.slow.js"></script>
+        
+        <!-- BEGIN: Vendor JS-->
+        <script src="app-assets/vendors/js/extensions/moment.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        <!-- BEGIN: Page Vendor JS-->
+        <script src="app-assets/vendors/js/charts/apexcharts.min.js"></script>
+        <script src="app-assets/vendors/js/extensions/toastr.min.js"></script>
+        <script src="assets/js/colors.js"></script>
+    
+</head>
+<body class="vertical-layout vertical-menu-modern  navbar-sticky footer-fixed fixed-footer" data-open="click" data-menu="vertical-menu-modern" data-col="">
+<nav class="header-navbar navbar navbar-expand-lg align-items-center navbar-dark navbar-shadow fixed-top">
+    <div class="navbar-container d-flex content">
+
+        <ul class="nav navbar-nav align-items-center  ml-auto">
+
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./notice.html">공지사항</a>
+            </li>
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./contact.html">문의하기</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./org.html">사용자관리</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2 dropdown dropdown-user">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text dropdown-toggle dropdown-user-link" id="dropdown-payment"
+                   href="javascript:alert('준비중입니다.')"
+                   data-toggle="" aria-haspopup="true" aria-expanded="true">결제정보</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="d-flex justify-content-between align-items-center kor dropdown-toggle" id="user-manage" data-toggle="dropdown">
+                    <img class="mr-1" src="./assets/images/Icon_User_W_S.png" height="32" width="32"/>
+                    <div class="d-flex flex-column">
+                        <span class="text-white font-small-2 font-weight-lighter ">환영합니다!</span>
+                        <span class=" text-white ">
+                            <small>관리자</small>
+                            테스트 사용자<small>님</small>
+                        </span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-manage">
+                    <a class="dropdown-item" href="./user.html"><span class="kor">정보 수정</span></a>
+                    <a class="dropdown-item" href="./index.html"><span class="kor">로그아웃</span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main-menu menu-fixed menu-dark menu-accordion" data-scroll-to-active="true"> <!-- menu-shadow -->
+    <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row ">
+
+
+            <li class=" nav-item">
+                <div class="d-flex pt-1 align-items-center ">
+                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <div class="shadow-bottom"></div>
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+
+            <li class=" navigation-header">
+                <span data-i18n="Alerts">Alerts</span>
+            </li>
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="./alert.html">
+                    <img src="assets/images/icons/Icon_Alert_History_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate ml-1">Alert History</span>
+                </a>
+            </li>
+
+            <li class=" navigation-header">Detailed Reports
+            </li>
+
+<!--            <li class=" nav-item">-->
+<!--                <a class="d-flex align-items-center" href="/report_menu?term=monthly">-->
+<!--                    <img src="assets/images/icons/Icon_Report_Monthly_W_S.png" height="32" width="32"/>-->
+<!--                    <span class="menu-title text-truncate">Monthly Report</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_weekly.html">
+                <img src="./assets/images/icons/Icon_Report_Weekly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Weekly Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_daily.html">
+                <img src="./assets/images/icons/Icon_Report_Daily_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncateml ml-1">Daily Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_hourly.html">
+                <img src="./assets/images/icons/Icon_Report_Hourly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Hourly Report</span></a>
+            </li>
+
+
+            <li class=" navigation-bottom-header mt-1">Preferences</li>
+
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./channel.html">
+                <img src="./assets/images/icons/Icon_Alarm_Channel_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">알람 채널 설정</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./limit.html">
+                <img src="./assets/images/icons/Icon_Alarm_Limit_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">임계치 설정</span></a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="nav-bottom ">
+        <div class="divider mt-2">
+            <span class="kor">station은 chrome에<br> 최적화되어있습니다.</span>
+        </div>
+        <ul class="navigation navigation-main" data-menu="menu-navigation">
+
+            <!--            <li class=" nav-item">-->
+            <!--                <div class="d-flex align-items-center ml-3 mt-2">-->
+            <!--                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>-->
+            <!--                </div>-->
+            <!--            </li>-->
+
+        </ul>
+    </div>
+</div>
+
+<div>
+    <!-- Detail Header -->
+    <div class="app-content content report-section" id="Report">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xl p-0 section-border">
+
+            <!-- Content Left Starts -->
+            <div class="content-detached content-left">
+
+                <!-- Reports starts -->
+                <div class="content-body">
+
+
+                    <!-- Report title -->
+                    <section id="Report-title">
+                        <div class="row">
+                            <div class="col-md-12 col-12 ">
+                                <div class="card report-header">
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-between mb-2">
+                                            <div class="flex-column p-0">
+                                                <!--                                                <img src="assets/images/Icon_Report_W_L.png" height="64"-->
+                                                <!--                                                     width="64"/>-->
+                                                <div class="flex-column mb-2">
+
+                                                    <div class="flex-grow-1 pl-1 my-1">
+                                                        <div class="header-line mb-0"></div>
+                                                    </div>
+                                                    <div class="align-self-center ml-1">
+                                                        <h1 class=" text-white"><span>daily</span> report</h1>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="d-inline-flex align-items-top pt-1 mr-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48"
+                                                     height="32px">
+                                                    <defs>
+                                                        <style>.cls-1 {
+                                                            fill: none;
+                                                        }
+
+                                                        .cls-2 {
+                                                            fill: #fff;
+                                                        }</style>
+                                                    </defs>
+                                                    <title>logo_sigrrow</title>
+                                                    <g id="Layer_2" data-name="Layer 2">
+                                                        <g id="logos">
+                                                            <g id="logo_sigrrow">
+                                                                <rect class="cls-1" width="180" height="48"/>
+                                                                <path class="cls-2"
+                                                                      d="M17.91,3,40.46,13.71l-7.54,4.1L47.7,34.74A23,23,0,0,0,17.91,3Zm-6.06,27.2,2-24.86A23,23,0,0,0,26.45,47L19.17,25.75ZM68,22.64h-5A1.54,1.54,0,0,1,62,22.17,1.56,1.56,0,0,1,61.47,21a1.62,1.62,0,0,1,1.6-1.6h7.57v-2.7H63.07a4.34,4.34,0,0,0-4.3,4.3,4.3,4.3,0,0,0,4.3,4.3l5,0a1.57,1.57,0,0,1,1.13.45,1.55,1.55,0,0,1,.47,1.15,1.49,1.49,0,0,1-.47,1.12,1.52,1.52,0,0,1-1.13.48H59.28v2.7H68a4.3,4.3,0,1,0,0-8.6Zm10.24,8.6H81V16.72H78.27Zm0-16.86H81V11.76H78.27Zm16.25,2.36A7.27,7.27,0,0,0,87.26,24,7.22,7.22,0,0,0,99.09,29.6v1.66a4.35,4.35,0,0,1-1.34,3.21,4.44,4.44,0,0,1-3.23,1.34v2.7a7,7,0,0,0,5.14-2.13,6.94,6.94,0,0,0,2.13-5.12V24a7.27,7.27,0,0,0-7.27-7.27Zm3.23,10.48A4.57,4.57,0,0,1,90,24a4.57,4.57,0,1,1,9.13,0A4.35,4.35,0,0,1,97.75,27.22ZM108,24v7.25h2.71V24a4.54,4.54,0,0,1,4.55-4.57v-2.7A7.27,7.27,0,0,0,108,24Zm13.32,0v7.25H124V24a4.48,4.48,0,0,1,1.33-3.24,4.42,4.42,0,0,1,3.22-1.33v-2.7A7.27,7.27,0,0,0,121.33,24Zm20.56-7.27A7.27,7.27,0,0,0,134.64,24,7.27,7.27,0,1,0,147,18.85,7,7,0,0,0,141.89,16.72Zm3.22,10.48A4.56,4.56,0,0,1,137.34,24a4.45,4.45,0,0,1,1.34-3.24A4.58,4.58,0,0,1,146.47,24,4.33,4.33,0,0,1,145.11,27.2ZM173,16.72v8.74a3.09,3.09,0,0,1-3.07,3.08,3,3,0,0,1-2.18-.89,3,3,0,0,1-.9-2.17V16.72h-2.71v8.76A3.09,3.09,0,0,1,161,28.54,3.11,3.11,0,0,1,158,25.46V16.72h-2.7v8.74A5.8,5.8,0,0,0,161,31.24a5.56,5.56,0,0,0,4.45-2.07,5.79,5.79,0,0,0,10.21-3.71V16.72Z"/>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+
+                                        <div class="col-12 d-flex mb-2 ml-1 ">
+                                            <div class="py-1 px-2 bg-dark round justify-content-center align-items-center">
+
+                                                <!-- report target time -->
+                                                <div class="font-small-3"><span>2021.04.02 00:00:00 KST ~ 2021.04.02 23:59:59</span></div>
+                                                <!-- report target time -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <div class="mb-2 mb-xl-0 kor">
+                                            <div class="row float-left align-items-center p-0">
+                                                <div class="col-12 pl-3">
+                                                    <p class="font-small-3 text-lightblue ">이 리포트는 시그로우를 통해 자동 생성된
+                                                        문서입니다.<br/>
+<!--                                                        용마산역에서 더 자세한 내용을 확인하실 수 있습니다.-->
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" mb-2 mb-xl-0 pr-3">
+                                            <div class="flex-column">
+
+                                                <!-- client info -->
+                                                <h4 class="mb-50 d-flex justify-content-end align-items-center">
+                                                    <small class="notification-text text-grey mr-1">CLIENT : </small>
+                                                    <span class="font-weight-bolder">sample</span>
+                                                </h4>
+                                                <h5 class="mb-0 d-flex justify-content-end align-items-center">
+                                                    <small class="notification-text text-grey mr-1">Report Date
+                                                        :</small>
+                                                    <span class="font-weight-bold">2021.04.03 00:05:59</span>
+                                                </h5>
+                                                <!-- client info -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Report title -->
+
+                    <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                    <div class="divider divider-dashed">
+                        <div class="divider-text float-right"><i class="" data-feather="check"></i></div>
+                    </div>
+                    <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+
+
+                    <!-- Resources & Event -->
+                    <section id="Report-event">
+                        <div class="row d-flex justify-content-between mb-2">
+                            <div class="flex-column p-0">
+                                <!--                                <img src="assets/images/Icon_Report_W_L.png" height="64" width="64"/>-->
+                                <div class="flex-column ">
+
+                                    <!--                                    <div class="flex-grow-1 pl-1 my-1">-->
+                                    <!--                                        <div class="header-line mb-0"></div>-->
+                                    <!--                                    </div>-->
+                                    <div class="align-self-center ml-1">
+                                        <h2 class=" text-white">Resources & Event</h2>
+                                        <div class="font-small-3 text-lightblue kor">전 시간 대비 자원의 변동은 다음과 같습니다.</div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="d-inline-flex align-items-top pt-1 mr-2">
+                                <!-- right -->
+                            </div>
+                        </div>
+                        <div class="row match-height">
+                            <div class="col-sm-6">
+                                <div class="row">
+                                    <!-- UP -->
+                                    <div class="col-6">
+                                        <div class="card bg-g-warning">
+                                            <div class="card-body text-center pb-50 mb-1">
+
+                                                <div class="icon-wrapper">
+                                                    <img
+                                                        src="assets/images/icons/Icon_ArrowUp_W.png" height="48"
+                                                        width="48"/>
+
+                                                </div>
+                                                <p class="font-medium-1 text-white">UP</p>
+
+                                                <div class="justify-content-center">
+                                                    <h4 class="icon-name text-truncate font-weight-bolder text-white mb-0 mt-1 ">
+                                                        <span>0</span>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- UP -->
+
+                                    <!-- DOWN -->
+                                    <div class="col-6">
+                                        <div class="card  bg-g-success">
+                                            <div class="card-body text-center pb-50 mb-1">
+                                                <div class="icon-wrapper">
+                                                    <img
+                                                        src="assets/images/icons/Icon_ArrowDown_W.png" height="48"
+                                                        width="48"/>
+
+                                                </div>
+                                                <p class="font-medium-1 text-white">DOWN</p>
+
+                                                <div class="justify-content-center">
+                                                    <h4 class="icon-name text-truncate font-weight-bolder text-white mb-0 mt-1 ">
+                                                        <span>0</span>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- DOWN -->
+                                </div>
+                            </div>
+                            <!-- Event Card -->
+                            <div class="col-sm-6">
+                                <div class="card earnings-card">
+                                    <div class="card-body text-center">
+                                        <div class="row">
+                                            <div class="col-12 kor ">
+                                                <p class="text-truncate mb-25">이 기간 동안 발생한 이벤트는</p>
+                                                <span class="text-truncate">
+                                                    <span>0</span> 건 입니다.
+                                                </span>
+                                                <div class=" mb-2"></div>
+                                                <div class="justify-content-center">
+                                                    <button onclick="location.href='./alert.html'" type="button"
+                                                            class="btn btn-sm btn-outline-info width-150 ">더보기
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Event Card -->
+                            </div>
+                        </div>
+                    </section>
+                    <!-- Resources & Event -->
+
+                    <div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text float-right"><i class="" data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="AWS/EC2">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-2">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        <img src="assets/images/services/Icon_EC2_L.png" height="54" width="54"/>
+                                                        <!--                                                        <img th:case="2" src="assets/images/Icon_EBS_L.png" height="54" width="54"/>-->
+                                                        
+                                                        <!--                                                        <img th:case="4" src="assets/images/Icon_ELB_L.png" height="54" width="54"/>-->
+                                                        
+                                                        
+                                                        <!--                                                        <img th:case="8" src="assets/images/Icon_ElastiCache_L.png" height="54" width="54"/>-->
+                                                        <!--                                                        <img th:case="9" src="assets/images/Icon_Kafka_L.png" height="54" width="54"/>-->
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto ">
+                                                    
+                                                        <h2 class="mb-0 text-white">EC2</h2>
+                                                        
+                                                        
+                                                        
+                                                    
+                                                    
+                                                        <h6>Elastic Compute Cloud</h6>
+                                                        <!--                                                        <h6 th:case="2" th:text="${'Elastic Block Store'}"></h6>-->
+                                                        
+                                                        <!--                                                        <h6 th:case="4" th:text="${'Elastic Load Balancing'}"></h6>-->
+                                                        
+                                                        
+                                                        <!--                                                        <h6 th:case="8" th:text="${'ElastiCache'}"></h6>-->
+                                                        <!--                                                        <h6 th:case="8" th:text="${'Kafka'}"></h6>-->
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="col-sm-0" data-feather='eye'></i>
+                                                    
+                                                        <p class="card-text font-small-3 mr-25 mb-0 ml-1 kor">모니터링된 자원 10개</p>
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    <div class="row match-height">
+
+                                        <!-- Card - EC2 CPU Utiliztion -->
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="card rds-cpu-card">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        <img src="assets/images/services/Icon_CPUUtilization_W.png" height="48"
+                                                             width="48"/> CPU
+                                                        Utilization
+                                                    </div>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line pink mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#EC2 CPU Utilization'">더보기
+                                                    </button>
+                                                </div>
+
+                                                <div class="card-body statistics-body">
+                                                    <div class="row ">
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <!-- ec2 cpu avg -->
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6" id="ec2_cpu_avg_chart">
+                                                                </div>
+                                                                <div class="col-6 d-flex flex-column  justify-content-start">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">
+                                                                        평균 사용률
+                                                                    </h3>
+                                                                    <div class="text-compare mb-25" id="ec2-cpu-avg-c">
+                                                                        <span>0.09</span> %
+                                                                        ~
+                                                                        <span>5.96</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ec2-cpu-avg-y">
+                                                                        <span>0.1</span> %
+                                                                        ~
+                                                                        <span>5.87</span>%
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ec2-cpu-avg-w">
+                                                                        <span>0.1</span> %
+                                                                        ~
+                                                                        <span>4.77</span> %
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                        <!-- ec2 cpu max -->
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6" id="ec2_cpu_max_chart">
+                                                                </div>
+                                                                <div class="col-6 d-flex flex-column  justify-content-start">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">
+                                                                        최대 사용률
+                                                                    </h3>
+                                                                    <div class="text-compare mb-25" id="ec2-cpu-max-c">
+                                                                        <span>1.0</span> %
+                                                                        ~
+                                                                        <span>8.17</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ec2-cpu-max-y">
+                                                                        <span>1.0</span> %
+                                                                        ~
+                                                                        <span>41.9</span>%
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ec2-cpu-max-w">
+                                                                        <span>1.0</span> %
+                                                                        ~
+                                                                        <span>11.17</span>%
+                                                                    </div>
+                                                                </div>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card - EC2 CPU Utiliztion -->
+                                        <!-- Card - EC2 Status Check Failed	 -->
+                                        <div class="col-lg-12 col-12">
+                                            <div class="card ">
+                                                <div class="card-header">
+                                                    <h4 class="card-title">
+                                                        <img src="assets/images/services/Icon_SCF_W.png" height="48" width="48"/>
+                                                        Status Check Failed
+                                                    </h4>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line pink mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#EC2 Status Check Failed'">더보기
+                                                    </button>
+                                                </div>
+
+                                                <!-- Box Chart -->
+                                                <div class="card-body mb-50">
+                                                    <div class="row d-flex justify-content-start align-items-center px-lg-5">
+                                                        <div class="col-3 kor">
+                                                            <div class="badge grow g_pink font-medium-3  py-75 px-lg-3 px-sm-1">
+                                                                <span class="kor">0건</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-3 kor">
+                                                            <span class="card-title font-weight-bold">발생된 FAIL <span class="card-text font-weight-bolder mb-1 text-primary">0건</span></span>
+                                                        </div>
+                                                        <div class="col-5  d-flex flex-column">
+                                                            <span class="text-compare-title mr-50 ml-2 kor">
+                                                                
+                                                                <span>1일전</span>
+                                                                
+                                                                <span class="font-medium-1 font-weight-bolder" id="ec2-scf-y">0건</span>
+                                                            </span>
+                                                            <span class="text-compare-title mr-50 ml-2 kor">
+                                                                
+                                                                <span>7일전 동일 요일</span>
+                                                                
+                                                                <span class="font-medium-1 font-weight-bolder" id="ec2-scf-y">0건</span>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Box Chart -->
+                                            </div>
+                                        </div>
+                                        <!-- Card - EC2 Status Check Failed	 -->
+                                    </div>
+                                    <script>
+                                        /*<![CDATA[*/
+                                        (function (window, undefined) {
+                                            'use strict'
+                                            let $ec2_cpu_avg_chart = document.querySelector('#ec2_cpu_avg_chart');
+                                            let cpuAvgSeries = 5.96;
+                                            let ec2_cpu_avg_option = {
+                                                chart: {
+                                                    height: 200,
+                                                    type: 'radialBar',
+                                                    sparkline: {
+                                                        enabled: true
+                                                    },
+                                                    dropShadow: {
+                                                        enabled: true,
+                                                        blur: 3,
+                                                        left: 1,
+                                                        top: 1,
+                                                        opacity: 0.1
+                                                    }
+                                                },
+                                                colors: [$g_violet_e],
+                                                labels: ["avg."],
+                                                plotOptions: {
+                                                    radialBar: {
+                                                        offsetY: -10,
+                                                        startAngle: -150,
+                                                        endAngle: 150,
+                                                        hollow: {
+                                                            size: '77%'
+                                                        },
+                                                        track: {
+                                                            background: $strokeColor,
+                                                            strokeWidth: '50%'
+                                                        },
+                                                        dataLabels: {
+                                                            name: {
+                                                                offsetY: -26,
+                                                                show: true,
+                                                                color: "#888",
+                                                                fontSize: "16px"
+                                                            },
+                                                            value: {
+
+                                                                color: $textHeadingColor,
+                                                                offsetY: -10,
+                                                                fontSize: '1.2em',
+                                                                fontWeight: '600',
+                                                                formatter: function (val) {
+                                                                    let max = cpuAvgSeries;
+                                                                    return max + "%" ;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                fill: {
+                                                    type: 'gradient',
+                                                    gradient: {
+                                                        shade: 'dark',
+                                                        type: 'horizontal',
+                                                        shadeIntensity: 0.5,
+                                                        gradientToColors: [$g_violet_s],
+                                                        inverseColors: true,
+                                                        opacityFrom: 1,
+                                                        opacityTo: 1,
+                                                        stops: [0, 100]
+                                                    }
+                                                },
+                                                series: [cpuAvgSeries],
+                                                stroke: {
+                                                    lineCap: 'round'
+                                                },
+                                                grid: {
+                                                    padding: {
+                                                        bottom: 30
+                                                    }
+                                                },
+                                            };
+                                            let ec2_cpu_avg_chart = new ApexCharts($ec2_cpu_avg_chart, ec2_cpu_avg_option);
+                                            ec2_cpu_avg_chart.render();
+
+                                            let $ec2_cpu_max_chart = document.querySelector('#ec2_cpu_max_chart');
+                                            let cpuMaxSeries = 8.17;
+                                            let ec2_cpu_max_option = {
+                                                chart: {
+                                                    height: 200,
+                                                    type: 'radialBar',
+                                                    sparkline: {
+                                                        enabled: true
+                                                    },
+                                                    dropShadow: {
+                                                        enabled: true,
+                                                        blur: 3,
+                                                        left: 1,
+                                                        top: 1,
+                                                        opacity: 0.1
+                                                    }
+                                                },
+                                                colors: [$g_violet_e],
+                                                labels: ["max"],
+                                                plotOptions: {
+                                                    radialBar: {
+                                                        offsetY: -10,
+                                                        startAngle: -150,
+                                                        endAngle: 150,
+                                                        hollow: {
+                                                            size: '77%'
+                                                        },
+                                                        track: {
+                                                            background: $strokeColor,
+                                                            strokeWidth: '50%'
+                                                        },
+                                                        dataLabels: {
+                                                            name: {
+                                                                offsetY: -26,
+                                                                show: true,
+                                                                color: "#888",
+                                                                fontSize: "16px"
+                                                            },
+                                                            value: {
+
+                                                                color: $textHeadingColor,
+                                                                offsetY: -10,
+                                                                fontSize: '1.2em',
+                                                                fontWeight: '600',
+                                                                formatter: function (val) {
+                                                                    let max = cpuMaxSeries;
+                                                                    return max + "%" ;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                fill: {
+                                                    type: 'gradient',
+                                                    gradient: {
+                                                        shade: 'dark',
+                                                        type: 'horizontal',
+                                                        shadeIntensity: 0.5,
+                                                        gradientToColors: [$g_violet_s],
+                                                        inverseColors: true,
+                                                        opacityFrom: 1,
+                                                        opacityTo: 1,
+                                                        stops: [0, 100]
+                                                    }
+                                                },
+                                                series: [cpuMaxSeries],
+                                                stroke: {
+                                                    lineCap: 'round'
+                                                },
+                                                grid: {
+                                                    padding: {
+                                                        bottom: 30
+                                                    }
+                                                },
+                                            };
+                                            let ec2_cpu_max_chart = new ApexCharts($ec2_cpu_max_chart, ec2_cpu_max_option);
+                                            ec2_cpu_max_chart.render();
+
+                                        })(window)
+                                        /*]]>*/
+                                    </script>
+                                
+                                
+                                
+                                
+                            </section>
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text float-right"><i class="" data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="AWS/RDS">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-2">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        <!--                                                        <img th:case="2" src="assets/images/Icon_EBS_L.png" height="54" width="54"/>-->
+                                                        
+                                                        <!--                                                        <img th:case="4" src="assets/images/Icon_ELB_L.png" height="54" width="54"/>-->
+                                                        <img src="assets/images/services/Icon_RDS_L.png" height="54" width="54"/>
+                                                        
+                                                        <!--                                                        <img th:case="8" src="assets/images/Icon_ElastiCache_L.png" height="54" width="54"/>-->
+                                                        <!--                                                        <img th:case="9" src="assets/images/Icon_Kafka_L.png" height="54" width="54"/>-->
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto ">
+                                                    
+                                                        
+                                                        
+                                                        <h2 class="mb-0 text-white">RDS</h2>
+                                                        
+                                                    
+                                                    
+                                                        
+                                                        <!--                                                        <h6 th:case="2" th:text="${'Elastic Block Store'}"></h6>-->
+                                                        
+                                                        <!--                                                        <h6 th:case="4" th:text="${'Elastic Load Balancing'}"></h6>-->
+                                                        <h6>Relational Database Service</h6>
+                                                        
+                                                        <!--                                                        <h6 th:case="8" th:text="${'ElastiCache'}"></h6>-->
+                                                        <!--                                                        <h6 th:case="8" th:text="${'Kafka'}"></h6>-->
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="col-sm-0" data-feather='eye'></i>
+                                                    
+                                                        
+                                                        
+                                                        <p class="card-text font-small-3 mr-25 mb-0 ml-1 kor">모니터링된 자원 1개</p>
+                                                        
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                    <div class="row match-height">
+                                        <!-- Card - CPU Utiliztion -->
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="card rds-cpu-card">
+                                                <div class="card-header">
+                                                    <div class="card-title"><img
+                                                            src="assets/images/services/Icon_CPUUtilization_W.png"
+                                                            height="48"
+                                                            width="48"/> CPU Utilization
+                                                    </div>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#RDS CPU Utilization'">더보기
+                                                    </button>
+                                                </div>
+
+                                                <div class="card-body statistics-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6" id="rds_cpu_avg_chart"></div>
+                                                                <div class="col-6  d-flex flex-column  justify-content-start">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">평균 사용률</h3>
+                                                                    <div class="text-compare mb-25">
+                                                                        <span>0.91</span> %
+                                                                        ~
+                                                                        <span>0.91</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="rds-cpu-avg-y">
+                                                                        <span>0.91</span> %
+                                                                        ~
+                                                                        <span>0.91</span>%
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="rds-cpu-avg-w">
+                                                                        <span>0.78</span> %
+                                                                        ~
+                                                                        <span>0.78</span> %
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6" id="rds_cpu_max_chart"></div>
+                                                                <div class="col-6 d-flex flex-column justify-content-start">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">최대 사용률</h3>
+                                                                    <div class="text-compare mb-25" id="rds-cpu-max-c">
+                                                                        <span>4.0</span> %
+                                                                        ~
+                                                                        <span>4.0</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="rds-cpu-max-y">
+                                                                        <span>3.0</span> %
+                                                                        ~
+                                                                        <span>3.0</span>%
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="rds-cpu-max-w">
+                                                                        <span>4.0</span> %
+                                                                        ~
+                                                                        <span>4.0</span> %
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card - CPU Utiliztion -->
+
+                                        <!-- Card - Freeable Memory -->
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="card rds-cpu-card">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        <img src="assets/images/services/Icon_FreeableMemory_W.png" height="48"
+                                                             width="48"/> Freeable
+                                                        Memory
+                                                    </div>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#RDS Freeable Memory'">더보기
+                                                    </button>
+                                                </div>
+                                                <!-- Box Chart -->
+                                                <div class="card-body ">
+                                                    <div class="mb-1 row">
+                                                        <div class="col-sm-5 col-12 flex-grow-1 order-sm-1 order-1">
+                                                            <div class="progress progress-bar-primary">
+                                                                <div class="progress-bar text-center g_blue"
+                                                                     role="progressbar"
+                                                                     aria-valuenow="100"
+                                                                     aria-valuemin="0"
+                                                                     aria-valuemax="100"
+                                                                     style="width: 100%">
+                                                                    <span>380.0MB</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-7 col-12 d-flex  flex-column order-sm-2 order-2 mt-1 mt-sm-0 px-sm-1 px-3">
+                                                            <h3 class="card-title font-weight-bold mb-0 kor">사용 가능한 메모리</h3>
+                                                            <div class="text-compare mb-25">
+                                                                <span>380.0MB</span>
+                                                            </div>
+                                                            <div class="text-compare-title kor">
+                                                                
+                                                                <span>1일전</span>
+                                                                
+                                                            </div>
+                                                            <div class="text-compare-s" id="rds-fam-y">
+                                                                <span>381.0MB</span>
+                                                            </div>
+                                                            <div class="text-compare-title kor">
+                                                                
+                                                                <span>7일전 동일 요일</span>
+                                                                
+                                                            </div>
+                                                            <div class="text-compare-s" id="rds-fam-w">
+                                                                <span>390.0MB</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Box Chart -->
+                                            </div>
+                                        </div>
+                                        <!-- Card - CPU Utiliztion -->
+
+
+                                        <!-- Free Storage Space -->
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="card ">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        <img src="assets/images/services/Icon_FSS_W.png" height="48" width="48"/>
+                                                        Free
+                                                        Storage Space
+                                                    </div>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#RDS Free Storage Space'">더보기
+                                                    </button>
+                                                </div>
+
+                                                <!-- Box Chart -->
+                                                <div class="card-body ">
+                                                    <div class="mb-1 row">
+                                                        <div class="col-sm-5 col-12 flex-grow-1 order-sm-1 order-1">
+                                                            <div class="progress progress-bar-primary">
+                                                                <div class="progress-bar text-center g_blue"
+                                                                     role="progressbar"
+                                                                     aria-valuenow="100"
+                                                                     aria-valuemin="0"
+                                                                     aria-valuemax="100"
+                                                                     style="width: 100%">
+                                                                    <span>97224.0MB</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-7 col-12 d-flex  flex-column order-sm-2 order-2 mt-1 mt-sm-0 px-sm-1 px-3">
+                                                            <h3 class="card-title font-weight-bold mb-0 kor">사용 가능한 Storage</h3>
+                                                            <div class="text-compare mb-25">
+                                                                <span>97224.0MB</span>
+                                                            </div>
+                                                            <div class="text-compare-title kor">
+                                                                
+                                                                <span>1일전</span>
+                                                                
+                                                            </div>
+                                                            <div class="text-compare-s" id="rds-fs-y">
+                                                                <span>97229.0MB</span>
+                                                            </div>
+                                                            <div class="text-compare-title kor">
+                                                                
+                                                                <span>7일전 동일 요일</span>
+                                                                
+                                                            </div>
+                                                            <div class="text-compare-s" id="rds-fs-w">
+                                                                <span>97258.0MB</span>
+                                                            </div>
+                                                            <!-- <button type="button" class="btn btn-sm btn-primary">더 보기</button>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Box Chart -->
+                                            </div>
+                                        </div>
+                                        <!-- Free Storage Space -->
+
+                                        <!-- Database Connections -->
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="card ">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        <img src="assets/images/icons/Icon_DatabaseConnections_W.png" height="48"
+                                                             width="48"/> Database
+                                                        Connections
+                                                    </div>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#RDS Database Connections'">더보기
+                                                    </button>
+                                                </div>
+                                                <!-- Box Chart -->
+                                                <div class="card-body ">
+                                                    <div class="mb-1 row">
+                                                        <div class="col-sm-5 col-12 flex-grow-1 order-sm-1 order-1">
+                                                            <div class="progress progress-bar-primary">
+                                                                <div class="progress-bar text-center g_blue"
+                                                                     role="progressbar"
+                                                                     aria-valuenow="100"
+                                                                     aria-valuemin="0"
+                                                                     aria-valuemax="100"
+                                                                     style="width: 100%">
+                                                                    <span class="kor">101.0개</span>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-7 col-12 d-flex  flex-column order-sm-2 order-2 mt-1 mt-sm-0 px-sm-1 px-3">
+                                                            <h3 class="card-title font-weight-bold mb-0 kor">사용중인 커넥션 수</h3>
+                                                            <div class="text-compare mb-25">
+                                                                <span class="kor">101.0개</span>
+                                                            </div>
+                                                            <div class="text-compare-title kor">
+                                                                
+                                                                <span>1일전</span>
+                                                                
+                                                            </div>
+                                                            <div class="text-compare-s" id="rds-con-y">
+                                                                <span class="kor">91.0개</span>
+                                                            </div>
+                                                            <div class="text-compare-title kor">
+                                                                
+                                                                <span>7일전 동일 요일</span>
+                                                                
+                                                            </div>
+                                                            <div class="text-compare-s" id="rds-con-w">
+                                                                <span class="kor">91.0개</span>
+                                                            </div>
+                                                            <!-- <button type="button" class="btn btn-sm btn-primary">더 보기</button>-->
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Box Chart -->
+                                            </div>
+                                        </div>
+                                        <!-- Database Connections -->
+                                    </div>
+                                    <script>
+                                        /*<![CDATA[*/
+                                        (function (window, undefined) {
+                                            'use strict'
+                                            let $rds_cpu_avg_chart = document.querySelector('#rds_cpu_avg_chart');
+                                            let rdsCpuAvgSeries = 0.91;
+                                            let rds_cpu_avg_option = {
+                                                chart: {
+                                                    height: 200,
+                                                    type: 'radialBar',
+                                                    sparkline: {
+                                                        enabled: true
+                                                    },
+                                                    dropShadow: {
+                                                        enabled: true,
+                                                        blur: 3,
+                                                        left: 1,
+                                                        top: 1,
+                                                        opacity: 0.1
+                                                    }
+                                                },
+                                                colors: [$g_blue_e],
+                                                labels: ["avg."],
+                                                plotOptions: {
+                                                    radialBar: {
+                                                        offsetY: -10,
+                                                        startAngle: -150,
+                                                        endAngle: 150,
+                                                        hollow: {
+                                                            size: '77%'
+                                                        },
+                                                        track: {
+                                                            background: $strokeColor,
+                                                            strokeWidth: '50%'
+                                                        },
+                                                        dataLabels: {
+                                                            name: {
+                                                                offsetY: -26,
+                                                                show: true,
+                                                                color: "#888",
+                                                                fontSize: "16px"
+                                                            },
+                                                            value: {
+
+                                                                color: $textHeadingColor,
+                                                                offsetY: -10,
+                                                                fontSize: '1.2em',
+                                                                fontWeight: '600',
+                                                                formatter: function (val) {
+                                                                    let max = rdsCpuAvgSeries;
+                                                                    return max + "%" ;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                fill: {
+                                                    type: 'gradient',
+                                                    gradient: {
+                                                        shade: 'dark',
+                                                        type: 'horizontal',
+                                                        shadeIntensity: 0.5,
+                                                        gradientToColors: [$g_blue_s],
+                                                        inverseColors: true,
+                                                        opacityFrom: 1,
+                                                        opacityTo: 1,
+                                                        stops: [0, 100]
+                                                    }
+                                                },
+                                                series: [rdsCpuAvgSeries],
+                                                stroke: {
+                                                    lineCap: 'round'
+                                                },
+                                                grid: {
+                                                    padding: {
+                                                        bottom: 30
+                                                    }
+                                                },
+                                            };
+                                            let rds_cpu_avg_chart = new ApexCharts($rds_cpu_avg_chart, rds_cpu_avg_option);
+                                            rds_cpu_avg_chart.render();
+
+                                            let $rds_cpu_max_chart = document.querySelector('#rds_cpu_max_chart');
+                                            let rdsCpuMaxSeries = 4.0;
+                                            let rds_cpu_max_option = {
+                                                chart: {
+                                                    height: 200,
+                                                    type: 'radialBar',
+                                                    sparkline: {
+                                                        enabled: true
+                                                    },
+                                                    dropShadow: {
+                                                        enabled: true,
+                                                        blur: 3,
+                                                        left: 1,
+                                                        top: 1,
+                                                        opacity: 0.1
+                                                    }
+                                                },
+                                                colors: [$g_blue_e],
+                                                labels: ["max"],
+                                                plotOptions: {
+                                                    radialBar: {
+                                                        offsetY: -10,
+                                                        startAngle: -150,
+                                                        endAngle: 150,
+                                                        hollow: {
+                                                            size: '77%'
+                                                        },
+                                                        track: {
+                                                            background: $strokeColor,
+                                                            strokeWidth: '50%'
+                                                        },
+                                                        dataLabels: {
+                                                            name: {
+                                                                offsetY: -26,
+                                                                show: true,
+                                                                color: "#888",
+                                                                fontSize: "16px"
+                                                            },
+                                                            value: {
+
+                                                                color: $textHeadingColor,
+                                                                offsetY: -10,
+                                                                fontSize: '1.2em',
+                                                                fontWeight: '600',
+                                                                formatter: function (val) {
+                                                                    let max = rdsCpuMaxSeries;
+                                                                    return max + "%" ;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                fill: {
+                                                    type: 'gradient',
+                                                    gradient: {
+                                                        shade: 'dark',
+                                                        type: 'horizontal',
+                                                        shadeIntensity: 0.5,
+                                                        gradientToColors: [$g_blue_s],
+                                                        inverseColors: true,
+                                                        opacityFrom: 1,
+                                                        opacityTo: 1,
+                                                        stops: [0, 100]
+                                                    }
+                                                },
+                                                series: [rdsCpuMaxSeries],
+                                                stroke: {
+                                                    lineCap: 'round'
+                                                },
+                                                grid: {
+                                                    padding: {
+                                                        bottom: 30
+                                                    }
+                                                },
+                                            };
+                                            let rds_cpu_max_chart = new ApexCharts($rds_cpu_max_chart, rds_cpu_max_option);
+                                            rds_cpu_max_chart.render();
+
+                                        })(window)
+                                        /*]]>*/
+                                    </script>
+                                
+                                
+                            </section>
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text float-right"><i class="" data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="AWS/ECS">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-2">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        <!--                                                        <img th:case="2" src="assets/images/Icon_EBS_L.png" height="54" width="54"/>-->
+                                                        
+                                                        <!--                                                        <img th:case="4" src="assets/images/Icon_ELB_L.png" height="54" width="54"/>-->
+                                                        
+                                                        <img src="assets/images/services/Icon_ECS_L.png" height="54" width="54"/>
+                                                        <!--                                                        <img th:case="8" src="assets/images/Icon_ElastiCache_L.png" height="54" width="54"/>-->
+                                                        <!--                                                        <img th:case="9" src="assets/images/Icon_Kafka_L.png" height="54" width="54"/>-->
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto ">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        <h2 class="mb-0 text-white">ECS</h2>
+                                                    
+                                                    
+                                                        
+                                                        <!--                                                        <h6 th:case="2" th:text="${'Elastic Block Store'}"></h6>-->
+                                                        
+                                                        <!--                                                        <h6 th:case="4" th:text="${'Elastic Load Balancing'}"></h6>-->
+                                                        
+                                                        <h6>Elastic Container Service</h6>
+                                                        <!--                                                        <h6 th:case="8" th:text="${'ElastiCache'}"></h6>-->
+                                                        <!--                                                        <h6 th:case="8" th:text="${'Kafka'}"></h6>-->
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <i class="col-sm-0" data-feather='eye'></i>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        <p class="card-text font-small-3 mr-25 mb-0 ml-1 kor">모니터링된 자원 3개</p>
+                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                
+                                    <div class="row match-height">
+                                        <!-- Card - CPU Utiliztion -->
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="card rds-cpu-card">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        <img src="assets/images/Icon_CPU_L.png" height="48" width="48"/> CPU
+                                                        Utiliztion
+                                                    </div>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line orange mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#ECS CPU Utilization'">더보기
+                                                    </button>
+                                                </div>
+
+                                                <div class="card-body statistics-body">
+                                                    <div class="row">
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6" id="ecs_cpu_avg_chart"></div>
+                                                                <div class="col-6  d-flex flex-column  justify-content-start  ">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">평균 사용률</h3>
+                                                                    <div class="text-compare mb-25" id="ecs-cpu-avg-c">
+                                                                        <span>0.21</span> %
+                                                                        ~
+                                                                        <span>3.95</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-cpu-avg-y">
+                                                                        <span>0.22</span> %
+                                                                        ~
+                                                                        <span>3.85</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-cpu-avg-w">
+                                                                        <span>0.2</span> %
+                                                                        ~
+                                                                        <span>2.78</span> %</h2>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6 " id="ecs_cpu_max_chart"></div>
+                                                                <div class="col-6  d-flex flex-column  justify-content-start ">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">최대 사용률</h3>
+                                                                    <div class="text-compare mb-25" id="ecs-cpu-max-c">
+                                                                        <span>0.95</span> %
+                                                                        ~
+                                                                        <span>4.92</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-cpu-max-y">
+                                                                        <span>0.97</span> %
+                                                                        ~
+                                                                        <span>5.79</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-cpu-max-w">
+                                                                        <span>0.97</span> %
+                                                                        ~
+                                                                        <span>7.22</span> %
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Card - CPU Utiliztion -->
+
+                                        <!-- Card - Freeable Memory -->
+                                        <div class="col-xl-12 col-lg-12 col-12">
+                                            <div class="card rds-cpu-card">
+                                                <div class="card-header">
+                                                    <div class="card-title">
+                                                        <img src="assets/images/services/Icon_MemUtil_W.png" height="48"
+                                                             width="48"/> Memory
+                                                        Utilization
+                                                    </div>
+                                                    <div class="flex-grow-1 px-2 ">
+                                                        <div class="header-line orange mb-0"></div>
+                                                    </div>
+                                                    <button type="button"
+                                                            class="btn btn-sm btn-dark kor" onclick="location.href='./report_daily_detail.html#ECS Memory Utilization'">더보기
+                                                    </button>
+                                                </div>
+                                                <!-- Box Chart -->
+                                                <div class="card-body ">
+                                                    <div class="row">
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6" id="ecs_mem_avg_chart">
+                                                                    <div class="progress ">
+                                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                                             style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+                                                                             aria-valuemax="100"></div>
+                                                                        <div class="progress-bar g_orange" role="progressbar"
+                                                                             style="width: 15%" aria-valuenow="15" aria-valuemin="0"
+                                                                             aria-valuemax="100"></div>
+                                                                        <div class="text-progress">
+                                                                            <span class="kor text-white">26.59%</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-6  d-flex flex-column  justify-content-start  ">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">평균 사용률</h3>
+                                                                    <div class="text-compare mb-25" id="ecs-mem-avg-c">
+                                                                        <span>3.95</span> %
+                                                                        ~
+                                                                        <span>26.59</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-mem-avg-y">
+                                                                        <span>3.91</span> %
+                                                                        ~
+                                                                        <span>26.03</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-mem-avg-w">
+                                                                        <span>3.9</span> %
+                                                                        ~
+                                                                        <span>22.08</span> %
+                                                                    </div>
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xl-6 col-12 mb-2 mb-xl-0">
+                                                            <div class="d-flex justify-content-start align-items-center">
+                                                                <div class="col-6 " id="ecs_mem_max_chart">
+                                                                    <div class="progress ">
+                                                                        <div class="progress-bar bg-primary" role="progressbar"
+                                                                             style="width: 60%" aria-valuenow="60" aria-valuemin="0"
+                                                                             aria-valuemax="100"></div>
+                                                                        <div class="progress-bar g_orange" role="progressbar"
+                                                                             style="width: 15%" aria-valuenow="15" aria-valuemin="0"
+                                                                             aria-valuemax="100"></div>
+                                                                        <div class="text-progress">
+                                                                            <span class="kor text-white">27.11%</span>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-6  d-flex flex-column  justify-content-start ">
+                                                                    <h3 class="card-title font-weight-bold mb-0 kor">최대 사용률</h3>
+                                                                    <div class="text-compare mb-25" id="ecs-mem-max-c">
+                                                                        <span class="kor">3.98% ~ 27.11%</span>
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>1일전</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-mem-max-y">
+                                                                        <span>3.91</span> %
+                                                                        ~
+                                                                        <span>26.45</span> %
+                                                                    </div>
+                                                                    <div class="text-compare-title kor">
+                                                                        
+                                                                        <span>7일전 동일 요일</span>
+                                                                        
+                                                                    </div>
+                                                                    <div class="text-compare-s" id="ecs-mem-max-w">
+                                                                        <span>3.9</span> %
+                                                                        ~
+                                                                        <span>22.08</span> %
+                                                                    </div>
+                                                                    <!-- <button type="button" class="btn btn-sm btn-primary">더 보기</button>-->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!-- Box Chart -->
+                                            </div>
+                                        </div>
+                                        <!-- Card - CPU Utiliztion -->
+
+
+                                    </div>
+                                    <script>
+                                        /*<![CDATA[*/
+                                        (function (window, undefined) {
+                                            'use strict'
+                                            let ecsCPUAvg = 3.95;
+                                            let $ecs_cpu_avg_chart = document.querySelector('#ecs_cpu_avg_chart');
+                                            let ecs_cpu_avg_option = {
+                                                chart: {
+                                                    height: 200,
+                                                    type: 'radialBar',
+                                                    sparkline: {
+                                                        enabled: true
+                                                    },
+                                                    dropShadow: {
+                                                        enabled: true,
+                                                        blur: 3,
+                                                        left: 1,
+                                                        top: 1,
+                                                        opacity: 0.1
+                                                    }
+                                                },
+                                                colors: [$g_orange_e],
+                                                labels: ["avg."],
+                                                plotOptions: {
+                                                    radialBar: {
+                                                        offsetY: -10,
+                                                        startAngle: -150,
+                                                        endAngle: 150,
+                                                        hollow: {
+                                                            size: '77%'
+                                                        },
+                                                        track: {
+                                                            background: $strokeColor,
+                                                            strokeWidth: '50%'
+                                                        },
+                                                        dataLabels: {
+                                                            name: {
+                                                                offsetY: -26,
+                                                                show: true,
+                                                                color: "#888",
+                                                                fontSize: "16px"
+                                                            },
+                                                            value: {
+
+                                                                color: $textHeadingColor,
+                                                                offsetY: -10,
+                                                                fontSize: '1.2em',
+                                                                fontWeight: '600',
+                                                                formatter: function (val) {
+                                                                    let max = ecsCPUAvg;
+                                                                    return max + "%" ;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                fill: {
+                                                    type: 'gradient',
+                                                    gradient: {
+                                                        shade: 'dark',
+                                                        type: 'horizontal',
+                                                        shadeIntensity: 0.5,
+                                                        gradientToColors: [$g_orange_s],
+                                                        inverseColors: true,
+                                                        opacityFrom: 1,
+                                                        opacityTo: 1,
+                                                        stops: [0, 100]
+                                                    }
+                                                },
+                                                series: [ecsCPUAvg],
+                                                stroke: {
+                                                    lineCap: 'round'
+                                                },
+                                                grid: {
+                                                    padding: {
+                                                        bottom: 30
+                                                    }
+                                                },
+
+                                            };
+                                            let ecs_cpu_avg_chart = new ApexCharts($ecs_cpu_avg_chart, ecs_cpu_avg_option);
+                                            ecs_cpu_avg_chart.render();
+
+                                            let ecsCPUMax = 4.92;
+                                            let $ecs_cpu_max_chart = document.querySelector('#ecs_cpu_max_chart');
+                                            let ecs_cpu_max_option = {
+                                                chart: {
+                                                    height: 200,
+                                                    type: 'radialBar',
+                                                    sparkline: {
+                                                        enabled: true
+                                                    },
+                                                    dropShadow: {
+                                                        enabled: true,
+                                                        blur: 3,
+                                                        left: 1,
+                                                        top: 1,
+                                                        opacity: 0.1
+                                                    }
+                                                },
+                                                colors: [$g_orange_e],
+                                                labels: ["max"],
+                                                plotOptions: {
+                                                    radialBar: {
+                                                        offsetY: -10,
+                                                        startAngle: -150,
+                                                        endAngle: 150,
+                                                        hollow: {
+                                                            size: '77%'
+                                                        },
+                                                        track: {
+                                                            background: $strokeColor,
+                                                            strokeWidth: '50%'
+                                                        },
+                                                        dataLabels: {
+                                                            name: {
+                                                                offsetY: -26,
+                                                                show: true,
+                                                                color: "#888",
+                                                                fontSize: "16px"
+                                                            },
+                                                            value: {
+
+                                                                color: $textHeadingColor,
+                                                                offsetY: -10,
+                                                                fontSize: '1.2em',
+                                                                fontWeight: '600',
+                                                                formatter: function (val) {
+                                                                    let max = ecsCPUMax;
+                                                                    return max + "%" ;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                fill: {
+                                                    type: 'gradient',
+                                                    gradient: {
+                                                        shade: 'dark',
+                                                        type: 'horizontal',
+                                                        shadeIntensity: 0.5,
+                                                        gradientToColors: [$g_orange_s],
+                                                        inverseColors: true,
+                                                        opacityFrom: 1,
+                                                        opacityTo: 1,
+                                                        stops: [0, 100]
+                                                    }
+                                                },
+                                                series: [ecsCPUMax],
+                                                stroke: {
+                                                    lineCap: 'round'
+                                                },
+                                                grid: {
+                                                    padding: {
+                                                        bottom: 30
+                                                    }
+                                                },
+                                            };
+                                            let ecs_cpu_max_chart = new ApexCharts($ecs_cpu_max_chart, ecs_cpu_max_option);
+                                            ecs_cpu_max_chart.render();
+
+                                        })(window)
+                                        /*]]>*/
+                                    </script>
+                                
+                            </section>
+                        </div>
+                    </div>
+
+
+                    <div class="my-5"></div>
+
+                </div>
+                <!-- Report ends -->
+
+            </div>
+            <!-- Content Left Ends -->
+
+            <!-- Content Right Starts -->
+            <div class="sidebar-detached sidebar-right bg-white">
+                <div class="sidebar bg-primary">
+
+                </div>
+            </div>
+            <!-- Content Right Ends -->
+
+        </div>
+    </div>
+    <!-- Report Header -->
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+
+        })
+    </script>
+
+</div>
+
+<div>
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <footer class="footer footer-fixed footer-light">
+        <div class="d-flex justify-content-between">
+            <div class="order-sm-2 mb-0">
+            <span class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
+                    class="ml-25" href="https://sigrrow.com" target="_blank">sigrrow</a><span
+                    class="d-none d-sm-inline-block">, All rights Reserved</span></span>
+            </span>
+            </div>
+            <div class="order-sm-1 mb-0">
+            <span class="d-flex">
+
+                <a class="font-small-2 text-grey kor mx-1 small" href="./terms.html">이용약관</a>
+                <a class="font-small-2 text-grey kor mx-1 small" href="./privacy.html">개인정보처리방침</a>
+                <span class="kor small">sigrrow | 사업자번호 : 421-54-00480 | 대표이사 : 이주영 | contact@sigrrow.io | 통신판매업신고번호 : 2021-용인수지-0526 | 경기도 용인시 수지구 현암로 107, 402호</span>
+            </span>
+            </div>
+        </div>
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.min.js"></script>
+    <script src="app-assets/js/core/app.min.js"></script>
+
+    <!-- END: Theme JS-->
+</div>
+
+</body>
+</html>

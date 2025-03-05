@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading dark-layout" data-layout="dark-layout" data-textdirection="ltr">
+
+<head>
+    <!-- config fragment 사용 -->
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description"
+              content="sigrrow station">
+        <meta name="keywords"
+              content="sigrrow station">
+        <title>sigrrow | station</title>
+        <link rel="apple-touch-icon" href="">
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="apple-mobile-web-app-title" content="sigrrow station">
+        <meta name="application-name" content="sigrrow station">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+        <!-- favicon -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTR7CC6SQX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZTR7CC6SQX');
+        </script>
+
+        <!-- Montserrat-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+              rel="stylesheet">
+        <!-- Montserrat-->
+
+        <!-- Noto Sans KR -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+              rel="stylesheet">
+        <!-- Noto Sans KR -->
+
+        <!-- BEGIN: Vendor CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+        <!-- END: Vendor CSS-->
+
+        <!-- BEGIN: Theme CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/components.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.min.css">
+
+
+        <!-- BEGIN: Page CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
+        <!-- END: Page CSS-->
+
+        <!-- BEGIN: Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <!-- BEGIN: Vendor JS-->
+        <script src="app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        
+        
+    
+<!-- BEGIN: Vendor CSS-->
+
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/charts/apexcharts.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/calendars/fullcalendar.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/forms/select/select2.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/extensions/toastr.min.css">
+        <!-- END: Vendor CSS-->
+
+        <!-- BEGIN: Table CSS-->
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+        <!-- END: Table CSS-->
+    
+<style>
+        .pagination>li>a, .pagination>li>span { border-radius: 50% !important;margin: 0 5px;}
+    </style>
+</head>
+<body class="vertical-layout vertical-menu-modern  navbar-sticky footer-fixed fixed-footer" data-open="click" data-menu="vertical-menu-modern" data-col="">
+<nav class="header-navbar navbar navbar-expand-lg align-items-center navbar-dark navbar-shadow fixed-top">
+    <div class="navbar-container d-flex content">
+
+        <ul class="nav navbar-nav align-items-center  ml-auto">
+
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./notice.html">공지사항</a>
+            </li>
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./contact.html">문의하기</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./org.html">사용자관리</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2 dropdown dropdown-user">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text dropdown-toggle dropdown-user-link" id="dropdown-payment"
+                   href="javascript:alert('준비중입니다.')"
+                   data-toggle="" aria-haspopup="true" aria-expanded="true">결제정보</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="d-flex justify-content-between align-items-center kor dropdown-toggle" id="user-manage" data-toggle="dropdown">
+                    <img class="mr-1" src="./assets/images/Icon_User_W_S.png" height="32" width="32"/>
+                    <div class="d-flex flex-column">
+                        <span class="text-white font-small-2 font-weight-lighter ">환영합니다!</span>
+                        <span class=" text-white ">
+                            <small>관리자</small>
+                            테스트 사용자<small>님</small>
+                        </span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-manage">
+                    <a class="dropdown-item" href="./user.html"><span class="kor">정보 수정</span></a>
+                    <a class="dropdown-item" href="./index.html"><span class="kor">로그아웃</span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main-menu menu-fixed menu-dark menu-accordion" data-scroll-to-active="true"> <!-- menu-shadow -->
+    <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row ">
+
+
+            <li class=" nav-item">
+                <div class="d-flex pt-1 align-items-center ">
+                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <div class="shadow-bottom"></div>
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+
+            <li class=" navigation-header">
+                <span data-i18n="Alerts">Alerts</span>
+            </li>
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="./alert.html">
+                    <img src="assets/images/icons/Icon_Alert_History_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate ml-1">Alert History</span>
+                </a>
+            </li>
+
+            <li class=" navigation-header">Detailed Reports
+            </li>
+
+<!--            <li class=" nav-item">-->
+<!--                <a class="d-flex align-items-center" href="/report_menu?term=monthly">-->
+<!--                    <img src="assets/images/icons/Icon_Report_Monthly_W_S.png" height="32" width="32"/>-->
+<!--                    <span class="menu-title text-truncate">Monthly Report</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_weekly.html">
+                <img src="./assets/images/icons/Icon_Report_Weekly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Weekly Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_daily.html">
+                <img src="./assets/images/icons/Icon_Report_Daily_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncateml ml-1">Daily Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_hourly.html">
+                <img src="./assets/images/icons/Icon_Report_Hourly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Hourly Report</span></a>
+            </li>
+
+
+            <li class=" navigation-bottom-header mt-1">Preferences</li>
+
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./channel.html">
+                <img src="./assets/images/icons/Icon_Alarm_Channel_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">알람 채널 설정</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./limit.html">
+                <img src="./assets/images/icons/Icon_Alarm_Limit_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">임계치 설정</span></a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="nav-bottom ">
+        <div class="divider mt-2">
+            <span class="kor">station은 chrome에<br> 최적화되어있습니다.</span>
+        </div>
+        <ul class="navigation navigation-main" data-menu="menu-navigation">
+
+            <!--            <li class=" nav-item">-->
+            <!--                <div class="d-flex align-items-center ml-3 mt-2">-->
+            <!--                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>-->
+            <!--                </div>-->
+            <!--            </li>-->
+
+        </ul>
+    </div>
+</div>
+
+<div>
+
+    <!-- user & setups  -->
+    <div class="app-content content report-section" id="Report">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xl p-0 section-border">
+
+            <!-- Content Left Starts -->
+            <div class="content-detached content-left">
+
+                <!-- Detail starts -->
+                <div class="content-body">
+
+                    <!-- Alert History Table Starts -->
+                    <section id="Alerts">
+                        <div class="row">
+                            <div class="content-header-left col-md-12 col-12 mb-1">
+                                <div class="row">
+                                    <div class="d-flex flex-row justify-content-start col-12">
+                                        <div class="float-left mb-0">
+                                            <img src="assets/images/services/Icon_AlertHistory_W.png" height="54"
+                                                 width="54"/>
+                                        </div>
+                                        <div class="ml-1 mr-auto">
+                                            <h2 class="mb-0 text-white mb-1">Alert History</h2>
+                                            <h6 class="kor text-grey"></h6>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <!-- right top -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card - Table -->
+                        <div class="card col-12">
+                            <div class="card-header justify-content-between align-content-center mb-50">
+                                <!--                                    <h4 class="card-title">-->
+                                <!--                                        <img src="assets/images/Icon_CPU_L.png" height="48" width="48"/>-->
+                                <!--                                        Freeable Memory</h4>-->
+                                <!--                                    <div class="flex-grow-1 px-2 ">-->
+                                <!--                                        <div class="header-line mb-0"></div>-->
+                                <!--                                    </div>-->
+                                <!--                                    <button type="button" class="btn btn-sm btn-dark kor">더보기</button>-->
+                            </div>
+                            <div class="card-body ">
+                                <div class="">
+                                    <table class="table_alerthistory table table-bordered table-striped kor">
+                                        <thead>
+                                        <tr>
+                                            <th>Date time</th>
+                                            <th>namespace</th>
+                                            <th>link</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <div>
+                                                <tr>
+                                                    <td>2021-04-01 09:08:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-0dd98197a8e22e870-CPUUtilization-1617268080000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-0dd98197a8e22e870-CPUUtilization-1617268080000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-01 09:05:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-09be095b9678b1647-CPUUtilization-1617267900000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-09be095b9678b1647-CPUUtilization-1617267900000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-01 09:00:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-09be095b9678b1647-CPUUtilization-1617267600000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-09be095b9678b1647-CPUUtilization-1617267600000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-01 08:58:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-0dd98197a8e22e870-CPUUtilization-1617267480000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-0dd98197a8e22e870-CPUUtilization-1617267480000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-01 08:53:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-0dd98197a8e22e870-CPUUtilization-1617267180000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-0dd98197a8e22e870-CPUUtilization-1617267180000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-01 08:50:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-09be095b9678b1647-CPUUtilization-1617267000000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-09be095b9678b1647-CPUUtilization-1617267000000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-04-01 08:45:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-09be095b9678b1647-CPUUtilization-1617266700000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-09be095b9678b1647-CPUUtilization-1617266700000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-03-30 23:41:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-0ac0bedd735fbbb55-CPUUtilization-1617147660000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-0ac0bedd735fbbb55-CPUUtilization-1617147660000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-03-30 23:37:00</td>
+                                                    <td>AWS/ECS</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-databee-cluster-CPUUtilization-1617147420000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-databee-cluster-CPUUtilization-1617147420000.html</span></a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2021-03-30 23:36:00</td>
+                                                    <td>AWS/EC2</td>
+                                                    <td><a href="#" onclick="window.open(&quot;http:\/\/alert.sigrrow.io\/testKey-i-0ac0bedd735fbbb55-CPUUtilization-1617147360000.html&quot;, &#39;alert&#39;, &#39;width=620, height=720&#39;);"><span>testKey-i-0ac0bedd735fbbb55-CPUUtilization-1617147360000.html</span></a></td>
+                                                </tr>
+                                            </div>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div>
+                                <nav aria-label="Page navigation">
+                                    <!--표에 사용될 변수값 초기화 -->
+                                    <ul class="pagination justify-content-center">
+                                        
+                                            <li><a href="#" aria-label="First"><span aria-hidden="true">First&nbsp;</span></a></li>
+                                            <!-- 이전 페이지로 가기 버튼 -->
+                                            <li class="disabled">
+                                                <a href="#" aria-label="Previous"><span aria-hidden="true">&lt;&nbsp;</span></a>
+                                            </li>
+                                            <!--1,2,3,4,.. 등 페이지-->
+                                            <li class="page-item page-link active">
+                                                <a href="#">1 </a>
+                                            </li>
+                                        
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                        <!-- Card - Table -->
+
+                    </section>
+                    <!-- Alert History Table Ends -->
+
+                    <div class="clearfix my-5"></div>
+
+
+                </div>
+                <!-- Detail ends -->
+
+            </div>
+            <!-- Content Left Ends -->
+
+            <!-- Content Right Starts -->
+            <div class="sidebar-detached sidebar-right bg-white">
+                <div class="sidebar bg-primary">
+                    <div class="my-2 my-lg-0 bg-primary" style="width:100%; hight:100%;">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+
+        })
+    </script>
+</div>
+
+<div>
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <footer class="footer footer-fixed footer-light">
+        <div class="d-flex justify-content-between">
+            <div class="order-sm-2 mb-0">
+            <span class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
+                    class="ml-25" href="https://sigrrow.com" target="_blank">sigrrow</a><span
+                    class="d-none d-sm-inline-block">, All rights Reserved</span></span>
+            </span>
+            </div>
+            <div class="order-sm-1 mb-0">
+            <span class="d-flex">
+
+                <a class="font-small-2 text-grey kor mx-1 small" href="./terms.html">이용약관</a>
+                <a class="font-small-2 text-grey kor mx-1 small" href="./privacy.html">개인정보처리방침</a>
+                <span class="kor small">sigrrow | 사업자번호 : 421-54-00480 | 대표이사 : 이주영 | contact@sigrrow.io | 통신판매업신고번호 : 2021-용인수지-0526 | 경기도 용인시 수지구 현암로 107, 402호</span>
+            </span>
+            </div>
+        </div>
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.min.js"></script>
+    <script src="app-assets/js/core/app.min.js"></script>
+
+    <!-- END: Theme JS-->
+</div>
+
+</body>
+</html>

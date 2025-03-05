@@ -1,0 +1,850 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading dark-layout" data-layout="dark-layout" data-textdirection="ltr">
+
+<head>
+    <!-- config fragment 사용 -->
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description"
+              content="sigrrow station">
+        <meta name="keywords"
+              content="sigrrow station">
+        <title>sigrrow | station</title>
+        <link rel="apple-touch-icon" href="">
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="apple-mobile-web-app-title" content="sigrrow station">
+        <meta name="application-name" content="sigrrow station">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+        <!-- favicon -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTR7CC6SQX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZTR7CC6SQX');
+        </script>
+
+        <!-- Montserrat-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+              rel="stylesheet">
+        <!-- Montserrat-->
+
+        <!-- Noto Sans KR -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+              rel="stylesheet">
+        <!-- Noto Sans KR -->
+
+        <!-- BEGIN: Vendor CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+        <!-- END: Vendor CSS-->
+
+        <!-- BEGIN: Theme CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/components.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.min.css">
+
+
+        <!-- BEGIN: Page CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
+        <!-- END: Page CSS-->
+
+        <!-- BEGIN: Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <!-- BEGIN: Vendor JS-->
+        <script src="app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        
+        
+    
+
+        <meta name="_csrf" content="c9a1c907-9dec-45ec-b094-e68dc89eea08">
+        <meta name="_csrf_header" content="X-CSRF-TOKEN">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/extensions/toastr.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/forms/form-validation.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-toggle.min.css">
+    
+</head>
+<body class="vertical-layout vertical-menu-modern  navbar-sticky footer-fixed fixed-footer" data-open="click" data-menu="vertical-menu-modern" data-col="">
+<nav class="header-navbar navbar navbar-expand-lg align-items-center navbar-dark navbar-shadow fixed-top">
+    <div class="navbar-container d-flex content">
+
+        <ul class="nav navbar-nav align-items-center  ml-auto">
+
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./notice.html">공지사항</a>
+            </li>
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./contact.html">문의하기</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./org.html">사용자관리</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2 dropdown dropdown-user">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text dropdown-toggle dropdown-user-link" id="dropdown-payment"
+                   href="javascript:alert('준비중입니다.')"
+                   data-toggle="" aria-haspopup="true" aria-expanded="true">결제정보</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="d-flex justify-content-between align-items-center kor dropdown-toggle" id="user-manage" data-toggle="dropdown">
+                    <img class="mr-1" src="./assets/images/Icon_User_W_S.png" height="32" width="32"/>
+                    <div class="d-flex flex-column">
+                        <span class="text-white font-small-2 font-weight-lighter ">환영합니다!</span>
+                        <span class=" text-white ">
+                            <small>관리자</small>
+                            테스트 사용자<small>님</small>
+                        </span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-manage">
+                    <a class="dropdown-item" href="./user.html"><span class="kor">정보 수정</span></a>
+                    <a class="dropdown-item" href="./index.html"><span class="kor">로그아웃</span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main-menu menu-fixed menu-dark menu-accordion" data-scroll-to-active="true"> <!-- menu-shadow -->
+    <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row ">
+
+
+            <li class=" nav-item">
+                <div class="d-flex pt-1 align-items-center ">
+                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <div class="shadow-bottom"></div>
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+
+            <li class=" navigation-header">
+                <span data-i18n="Alerts">Alerts</span>
+            </li>
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="./alert.html">
+                    <img src="assets/images/icons/Icon_Alert_History_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate ml-1">Alert History</span>
+                </a>
+            </li>
+
+            <li class=" navigation-header">Detailed Reports
+            </li>
+
+<!--            <li class=" nav-item">-->
+<!--                <a class="d-flex align-items-center" href="/report_menu?term=monthly">-->
+<!--                    <img src="assets/images/icons/Icon_Report_Monthly_W_S.png" height="32" width="32"/>-->
+<!--                    <span class="menu-title text-truncate">Monthly Report</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_weekly.html">
+                <img src="./assets/images/icons/Icon_Report_Weekly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Weekly Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_daily.html">
+                <img src="./assets/images/icons/Icon_Report_Daily_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncateml ml-1">Daily Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_hourly.html">
+                <img src="./assets/images/icons/Icon_Report_Hourly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Hourly Report</span></a>
+            </li>
+
+
+            <li class=" navigation-bottom-header mt-1">Preferences</li>
+
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./channel.html">
+                <img src="./assets/images/icons/Icon_Alarm_Channel_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">알람 채널 설정</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./limit.html">
+                <img src="./assets/images/icons/Icon_Alarm_Limit_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">임계치 설정</span></a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="nav-bottom ">
+        <div class="divider mt-2">
+            <span class="kor">station은 chrome에<br> 최적화되어있습니다.</span>
+        </div>
+        <ul class="navigation navigation-main" data-menu="menu-navigation">
+
+            <!--            <li class=" nav-item">-->
+            <!--                <div class="d-flex align-items-center ml-3 mt-2">-->
+            <!--                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>-->
+            <!--                </div>-->
+            <!--            </li>-->
+
+        </ul>
+    </div>
+</div>
+
+<div>
+
+    <!-- user & setups  -->
+    <div class="app-content content report-section" id="Report">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xl p-0 section-border">
+
+            <!-- Content Left Starts -->
+            <div class="content-detached content-left">
+
+                <!-- Detail starts -->
+                <div class="content-body">
+                    <section class="alarm-config">
+
+                    </section>
+
+                    <!-- setting-limits start -->
+                    <section class="setting-limits">
+                        <div class="row">
+                            <div class="content-header-left col-md-12 col-12 mb-1">
+                                <div class="row">
+                                    <div class="d-flex flex-row justify-content-start col-12">
+                                        <div class="float-left mb-0">
+                                            <img src="assets/images/icons/Icon_SetLimits_W.png" height="54"
+                                                 width="54"/>
+                                        </div>
+                                        <div class="ml-1 mr-auto">
+                                            <h2 class="mb-0 text-white mb-1 kor">임계치 설정</h2>
+                                            <h6 class="kor text-grey">
+                                                <p>
+                                                    지표가 설정된 수준에 도달할 경우 <span class="badge badge-light-warning badge-glow eng >">Alert</span>를 발송합니다.<br/>
+                                                    임계치는 절대값으로, 지표가 해당 값에 도달하면 자동으로 알람이 발송됩니다.<br/>
+                                                    변화량은 상대값으로, 이전 시간 대비 지표가 해당 값 이상 차이가 발생하면 알람이 발송됩니다.<br/>
+                                                    최초에 기재되어 있는 값은 시그로우에서 추천하는 기본 값으로, 서비스 상황에 맞게 변경하여 사용하실 수 있습니다.
+                                                </p>
+                                            </h6>
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <!-- right top -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- list section start -->
+                        <div class="card">
+                            <div class="d-flex justify-content-between align-items-end mb-1">
+                                <div>
+                                    <div class="card-header">
+                                        <!-- korean? -->
+                                        <h4 class="card-title "><i data-feather='settings'></i> Setting for Limits</h4>
+                                    </div>
+                                    <p class="card-text ml-2 kor">소수점 이하는 입력되지 않습니다. 미입력 시 이전 값으로 자동 설정됩니다.</p>
+                                </div>
+                                <div>
+                                    <!-- save & reset btn -->
+                                    <div class="d-flex justify-content-end align-items-center kor">
+                                        <button class="btn btn-outline-warning " onclick="initializeConfig()">최초값</button>
+                                        <button class="btn btn-primary mx-1" onclick="submit()">저장</button>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- Table setting limits  -->
+                            <div class="row mb-2">
+                                <div class="col-12 kor">
+                                    <!-- Table for Limits -->
+                                    <div class="card-datatable table-responsive mb-1">
+                                        <table class="table table-sm table-bordered table-striped text-center">
+                                            <colgroup>
+                                                <col span="1" style="width: 15%;">
+                                                <col span="1" style="width: 30%;">
+                                                <col span="1" style="width: 20%;">
+                                                <col span="1" style="width: 20%;">
+                                                <col span="1" style="width: 15%">
+                                            </colgroup>
+                                            <thead class="thead-light">
+                                            <tr>
+                                                <th>서비스</th>
+                                                <th>지표</th>
+                                                <th>임계치</th>
+                                                <th>변화량</th>
+                                                <th>ON/OFF</th>
+                                            </tr>
+                                            </thead>
+                                            <form id="alertLimit" action="/limit" method="post"><input type="hidden" name="_csrf" value="c9a1c907-9dec-45ec-b094-e68dc89eea08"/>
+                                                <input type="hidden" name="_csrf" value="c9a1c907-9dec-45ec-b094-e68dc89eea08" />
+                                            <!-- EC2 -->
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex flex-column justify-content-center align-items-center pt-50">
+                                                    <img class="mb-25" src="assets/images/services/Icon_EC2_L.png"
+                                                                     height="54" width="54"/><span class="font-medium-1 font-weight-bolder eng">EC2</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-left pl-1">
+                                                    CPU Utilization
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right"
+                                                                       value=""
+                                                                       name="ec2_cpu_threshold"
+                                                                       id="ec2_cpu_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline  ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right"
+                                                                       value=""
+                                                                       name="ec2_cpu_rateofchange"
+                                                                       id="ec2_cpu_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" name="ec2_alarm" id="ec2_alarm" data-toggle="toggle">
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <!-- EC2 -->
+
+                                            <!-- ECS -->
+                                            <tbody>
+                                            <tr>
+                                                <td rowspan="2">
+                                                    <div class="d-flex flex-column justify-content-center align-items-center pt-50">
+                                                        <img class="mb-25" src="assets/images/services/Icon_ECS_L.png"
+                                                             height="54" width="54"/><span class="font-medium-1 font-weight-bolder eng">ECS</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-left pl-1">
+                                                    CPU Utilization
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="ecs_cpu_threshold"
+                                                                       id="ecs_cpu_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="ecs_cpu_rateofchange"
+                                                                       id="ecs_cpu_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <input type="checkbox" name="ecs_alarm" id="ecs_alarm" data-toggle="toggle">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left pl-1">
+                                                    Memory Utilization
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="ecs_mem_threshold"
+                                                                       id="ecs_mem_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="ecs_mem_rateofchage"
+                                                                       id="ecs_mem_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <!-- ECS -->
+
+                                            <!-- RDS -->
+                                            <tbody>
+                                            <tr>
+                                                <td rowspan="2">
+                                                    <div class="d-flex flex-column justify-content-center align-items-center pt-50">
+                                                        <img class="mb-25" src="assets/images/services/Icon_RDS_L.png"
+                                                             height="54" width="54"/><span class="font-medium-1 font-weight-bolder eng">RDS</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-left pl-1">
+                                                    CPU Utilization
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="rds_cpu_threshold"
+                                                                       id="rds_cpu_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="rds_cpu_rateofchange"
+                                                                       id="rds_cpu_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <input type="checkbox" name="rds_alarm" id="rds_alarm" data-toggle="toggle">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left pl-1">
+                                                    Freeable Memory
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="rds_mem_threshold"
+                                                                       id="rds_mem_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">Bytes</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="rds_mem_rateofchange"
+                                                                       id="rds_mem_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <!-- RDS -->
+
+                                            <!-- ALB -->
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex flex-column justify-content-center align-items-center pt-50">
+                                                        <img class="mb-25" src="assets/images/services/Icon_ALB_L.png"
+                                                             height="54" width="54"/><span class="font-medium-1 font-weight-bolder eng">ALB</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-left pl-1">
+                                                    Target Response Time
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="alb_time_threshold"
+                                                                       id="alb_time_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">Sec.</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="alb_time_rateofchange"
+                                                                       id="alb_time_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">Sec.</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <input type="checkbox" name="alb_alarm" id="alb_alarm" data-toggle="toggle">
+                                                </td>
+                                            </tr>
+
+                                            </tbody>
+                                            <!-- ALB -->
+
+                                            <!-- ElastiCache -->
+                                            <tbody>
+                                            <tr>
+                                                <td rowspan="2">
+                                                    <div class="d-flex flex-column justify-content-center align-items-center pt-50">
+                                                        <img class="mb-25" src="assets/images/services/Icon_ElastiCache_L.png"
+                                                             height="54" width="54"/><span class="font-small-3 font-weight-bolder eng">ElastiCache</span>
+                                                    </div>
+                                                </td>
+                                                <td class="text-left pl-1">
+                                                    Engine CPU Utilization
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="redis_cpu_threshold"
+                                                                       id="redis_cpu_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="redis_cpu_rateofchange"
+                                                                       id="redis_cpu_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td rowspan="2">
+                                                    <input type="checkbox" name="elasticache_alarm" id="elasticache_alarm" data-toggle="toggle">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-left pl-1">
+                                                    Database Memory Usage Percentage
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="redis_mem_threshold"
+                                                                       id="redis_mem_threshold"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="form-inline ">
+                                                        <div class="col-10">
+                                                            <div class="pr-2">
+                                                                <input type="number"
+                                                                       onKeyup="this.value=this.value.replace(/[^0-9]/g,'');"
+                                                                       class="form-control bg-dark text-right "
+                                                                       value=""
+                                                                       name="redis_mem_rateofchange"
+                                                                       id="redis_mem_rateofchange"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-2 d-flex small">%</div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                            <!-- ElastiCache -->
+                                            </form>
+
+                                        </table>
+                                    </div>
+
+                                    <!-- save & reset btn -->
+                                    <div class="d-flex justify-content-end align-items-center">
+                                        <button class="btn btn-outline-warning " onclick="initializeConfig()">최초값</button>
+                                        <button class="btn btn-primary mx-1" onclick="submit()">저장</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Table setting limits  -->
+
+                        </div>
+                        <!-- list section end -->
+                    </section>
+                    <!-- setting-limits ends -->
+
+                    <div class="clearfix my-5"></div>
+
+
+                </div>
+                <!-- Detail ends -->
+
+            </div>
+            <!-- Content Left Ends -->
+
+            <!-- Content Right Starts -->
+            <div class="sidebar-detached sidebar-right bg-white">
+                <div class="sidebar bg-primary">
+                    <div class="my-2 my-lg-0 bg-primary" style="width:100%; height:100%;">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <script src="assets/js/bootstrap-toggle.min.js"></script>
+    <script>
+        /*<![CDATA[*/
+        let defaultAlarm = {"ec2CpuThreshold":50,"ec2CpuRateOfChange":10,"sendEC2Alarm":true,"ecsCpuThreshold":50,"ecsCpuRateOfChange":10,"ecsMemThreshold":50,"ecsMemRateOfChange":10,"sendECSAlarm":true,"rdsCpuThreshold":50,"rdsCpuRateOfChange":10,"rdsMemThreshold":419430400,"rdsMemRateOfChange":10,"sendRDSAlarm":true,"albTimeThreshold":1,"albTimeRateOfChange":1,"sendALBAlarm":true,"redisCpuThreshold":50,"redisCpuRateOfChange":10,"redisMemThreshold":50,"redisMemRateOfChange":10,"sendRedisAlarm":true};
+        (function (window, undefined) {
+            'use strict'
+            let alarm = {"ec2CpuThreshold":50,"ec2CpuRateOfChange":10,"sendEC2Alarm":true,"ecsCpuThreshold":50,"ecsCpuRateOfChange":10,"ecsMemThreshold":50,"ecsMemRateOfChange":10,"sendECSAlarm":true,"rdsCpuThreshold":50,"rdsCpuRateOfChange":10,"rdsMemThreshold":4130400,"rdsMemRateOfChange":10,"sendRDSAlarm":true,"albTimeThreshold":1,"albTimeRateOfChange":1,"sendALBAlarm":true,"redisCpuThreshold":50,"redisCpuRateOfChange":10,"redisMemThreshold":50,"redisMemRateOfChange":10,"sendRedisAlarm":true};
+            $('#ec2_cpu_threshold').val(alarm.ec2CpuThreshold);
+            $('#ec2_cpu_rateofchange').val(alarm.ec2CpuRateOfChange);
+            if(alarm.sendEC2Alarm === true) {
+                $('#ec2_alarm').bootstrapToggle('on');
+            } else {
+                $('#ec2_alarm').bootstrapToggle('off');
+            }
+
+            $('#ecs_cpu_threshold').val(alarm.ecsCpuThreshold);
+            $('#ecs_cpu_rateofchange').val(alarm.ecsCpuRateOfChange);
+            $('#ecs_mem_threshold').val(alarm.ecsMemThreshold);
+            $('#ecs_mem_rateofchange').val(alarm.ecsMemRateOfChange);
+            if(alarm.sendECSAlarm === true) {
+                $('#ecs_alarm').bootstrapToggle('on');
+            } else {
+                $('#ecs_alarm').bootstrapToggle('off');
+            }
+
+            $('#rds_cpu_threshold').val(alarm.rdsCpuThreshold);
+            $('#rds_cpu_rateofchange').val(alarm.rdsCpuRateOfChange);
+            $('#rds_mem_threshold').val(alarm.rdsMemThreshold);
+            $('#rds_mem_rateofchange').val(alarm.rdsMemRateOfChange);
+            if(alarm.sendRDSAlarm === true) {
+                $('#rds_alarm').bootstrapToggle('on');
+            } else {
+                $('#rds_alarm').bootstrapToggle('off');
+            }
+
+            $('#alb_time_threshold').val(alarm.albTimeThreshold);
+            $('#alb_time_rateofchange').val(alarm.albTimeRateOfChange);
+            if(alarm.sendALBAlarm === true) {
+                $('#alb_alarm').bootstrapToggle('on');
+            } else {
+                $('#alb_alarm').bootstrapToggle('off');
+            }
+
+            $('#redis_cpu_threshold').val(alarm.redisCpuThreshold);
+            $('#redis_cpu_rateofchange').val(alarm.redisCpuRateOfChange);
+            $('#redis_mem_threshold').val(alarm.redisMemThreshold);
+            $('#redis_mem_rateofchange').val(alarm.redisMemRateOfChange);
+            if(alarm.sendRedisAlarm === true) {
+                $('#elasticache_alarm').bootstrapToggle('on');
+            } else {
+                $('#elasticache_alarm').bootstrapToggle('off');
+            }
+        })(window)
+
+        function initializeConfig() {
+            $('#ec2_cpu_threshold').val(defaultAlarm.ec2CpuThreshold);
+            $('#ec2_cpu_rateofchange').val(defaultAlarm.ec2CpuRateOfChange);
+            if(defaultAlarm.sendEC2Alarm === true) {
+                $('#ec2_alarm').bootstrapToggle('on')
+            } else {
+                $('#ec2_alarm').bootstrapToggle('off')
+            }
+
+            $('#ecs_cpu_threshold').val(defaultAlarm.ecsCpuThreshold);
+            $('#ecs_cpu_rateofchange').val(defaultAlarm.ecsCpuRateOfChange);
+            $('#ecs_mem_threshold').val(defaultAlarm.ecsMemThreshold);
+            $('#ecs_mem_rateofchange').val(defaultAlarm.ecsMemRateOfChange);
+            if(defaultAlarm.sendECSAlarm === true) {
+                $('#ecs_alarm').bootstrapToggle('on');
+            } else {
+                $('#ecs_alarm').bootstrapToggle('off');
+            }
+
+            $('#rds_cpu_threshold').val(defaultAlarm.rdsCpuThreshold);
+            $('#rds_cpu_rateofchange').val(defaultAlarm.rdsCpuRateOfChange);
+            $('#rds_mem_threshold').val(defaultAlarm.rdsMemThreshold);
+            $('#rds_mem_rateofchange').val(defaultAlarm.rdsMemRateOfChange);
+            if(defaultAlarm.sendRDSAlarm === true) {
+                $('#rds_alarm').bootstrapToggle('on');
+            } else {
+                $('#rds_alarm').bootstrapToggle('off');
+            }
+
+            $('#alb_time_threshold').val(defaultAlarm.albTimeThreshold);
+            $('#alb_time_rateofchange').val(defaultAlarm.albTimeRateOfChange);
+            if(defaultAlarm.sendALBAlarm === true) {
+                $('#alb_alarm').bootstrapToggle('on');
+            } else {
+                $('#alb_alarm').bootstrapToggle('off');
+            }
+
+            $('#redis_cpu_threshold').val(defaultAlarm.redisCpuThreshold);
+            $('#redis_cpu_rateofchange').val(defaultAlarm.redisCpuRateOfChange);
+            $('#redis_mem_threshold').val(defaultAlarm.redisMemThreshold);
+            $('#redis_mem_rateofchange').val(defaultAlarm.redisMemRateOfChange);
+            if(defaultAlarm.sendRedisAlarm === true) {
+                $('#elasticache_alarm').bootstrapToggle('on');
+            } else {
+                $('#elasticache_alarm').bootstrapToggle('off');
+            }
+        }
+        function submit() {
+            alert('샘플 사이트에서는 동작하지 않습니다.');
+        }
+        /*]]>*/
+    </script>
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+
+        });
+    </script>
+
+</div>
+
+<div>
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <footer class="footer footer-fixed footer-light">
+        <div class="d-flex justify-content-between">
+            <div class="order-sm-2 mb-0">
+            <span class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
+                    class="ml-25" href="https://sigrrow.com" target="_blank">sigrrow</a><span
+                    class="d-none d-sm-inline-block">, All rights Reserved</span></span>
+            </span>
+            </div>
+            <div class="order-sm-1 mb-0">
+            <span class="d-flex">
+
+                <a class="font-small-2 text-grey kor mx-1 small" href="./terms.html">이용약관</a>
+                <a class="font-small-2 text-grey kor mx-1 small" href="./privacy.html">개인정보처리방침</a>
+                <span class="kor small">sigrrow | 사업자번호 : 421-54-00480 | 대표이사 : 이주영 | contact@sigrrow.io | 통신판매업신고번호 : 2021-용인수지-0526 | 경기도 용인시 수지구 현암로 107, 402호</span>
+            </span>
+            </div>
+        </div>
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.min.js"></script>
+    <script src="app-assets/js/core/app.min.js"></script>
+
+    <!-- END: Theme JS-->
+</div>
+
+</body>
+</html>

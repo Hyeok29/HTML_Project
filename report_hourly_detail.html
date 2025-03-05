@@ -1,0 +1,1810 @@
+
+<!DOCTYPE html>
+<html lang="ko" class="loading dark-layout" data-layout="dark-layout" data-textdirection="ltr">
+
+<head>
+    <!-- config fragment 사용 -->
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description"
+              content="sigrrow station">
+        <meta name="keywords"
+              content="sigrrow station">
+        <title>sigrrow | station</title>
+        <link rel="apple-touch-icon" href="">
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="apple-mobile-web-app-title" content="sigrrow station">
+        <meta name="application-name" content="sigrrow station">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+        <!-- favicon -->
+
+        <!-- Montserrat-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+              rel="stylesheet">
+        <!-- Montserrat-->
+
+        <!-- Noto Sans KR -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+              rel="stylesheet">
+        <!-- Noto Sans KR -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTR7CC6SQX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZTR7CC6SQX');
+        </script>
+
+        <!-- BEGIN: Vendor CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+        <!-- END: Vendor CSS-->
+
+        <!-- BEGIN: Theme CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/components.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.min.css">
+
+
+        <!-- BEGIN: Page CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
+        <!-- END: Page CSS-->
+
+        <!-- BEGIN: Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <!-- BEGIN: Vendor JS-->
+        <script src="app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        
+        
+    
+
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/charts/apexcharts.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/extensions/toastr.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/charts/chart-apex.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/extensions/ext-component-toastr.css">
+    
+</head>
+<body class="vertical-layout vertical-menu-modern  navbar-sticky footer-fixed fixed-footer" data-open="click" data-menu="vertical-menu-modern" data-col="">
+<nav class="header-navbar navbar navbar-expand-lg align-items-center navbar-dark navbar-shadow fixed-top">
+    <div class="navbar-container d-flex content">
+
+        <ul class="nav navbar-nav align-items-center  ml-auto">
+
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./notice.html">공지사항</a>
+            </li>
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./contact.html">문의하기</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./org.html">사용자관리</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2 dropdown dropdown-user">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text dropdown-toggle dropdown-user-link" id="dropdown-payment"
+                   href="javascript:alert('준비중입니다.')"
+                   data-toggle="" aria-haspopup="true" aria-expanded="true">결제정보</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="d-flex justify-content-between align-items-center kor dropdown-toggle" id="user-manage" data-toggle="dropdown">
+                    <img class="mr-1" src="./assets/images/Icon_User_W_S.png" height="32" width="32"/>
+                    <div class="d-flex flex-column">
+                        <span class="text-white font-small-2 font-weight-lighter ">환영합니다!</span>
+                        <span class=" text-white ">
+                            <small>관리자</small>
+                            테스트 사용자<small>님</small>
+                        </span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-manage">
+                    <a class="dropdown-item" href="./user.html"><span class="kor">정보 수정</span></a>
+                    <a class="dropdown-item" href="./index.html"><span class="kor">로그아웃</span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main-menu menu-fixed menu-dark menu-accordion" data-scroll-to-active="true"> <!-- menu-shadow -->
+    <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row ">
+
+
+            <li class=" nav-item">
+                <div class="d-flex pt-1 align-items-center ">
+                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <div class="shadow-bottom"></div>
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+
+
+                <li class=" navigation-header">
+                    <span data-i18n="Alerts">Alerts</span>
+                </li>
+    
+                <li class=" nav-item">
+                    <a class="d-flex align-items-center" href="./alert.html">
+                        <img src="assets/images/icons/Icon_Alert_History_W_S.png" height="32" width="32"/>
+                        <span class="menu-title text-truncate ml-1">Alert History</span>
+                    </a>
+                </li>
+    
+                <li class=" navigation-header">Detailed Reports
+                </li>
+    
+    <!--            <li class=" nav-item">-->
+    <!--                <a class="d-flex align-items-center" href="/report_menu?term=monthly">-->
+    <!--                    <img src="assets/images/icons/Icon_Report_Monthly_W_S.png" height="32" width="32"/>-->
+    <!--                    <span class="menu-title text-truncate">Monthly Report</span>-->
+    <!--                </a>-->
+    <!--            </li>-->
+                <li class=" nav-item"><a class="d-flex align-items-center" href="./report_weekly.html">
+                    <img src="./assets/images/icons/Icon_Report_Weekly_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate ml-1">Weekly Report</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="./report_daily.html">
+                    <img src="./assets/images/icons/Icon_Report_Daily_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncateml ml-1">Daily Report</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="./report_hourly.html">
+                    <img src="./assets/images/icons/Icon_Report_Hourly_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate ml-1">Hourly Report</span></a>
+                </li>
+    
+    
+                <li class=" navigation-bottom-header mt-1">Preferences</li>
+    
+                <li class=" nav-item"><a class="d-flex align-items-center" href="./channel.html">
+                    <img src="./assets/images/icons/Icon_Alarm_Channel_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate font-weight-light ml-1 kor">알람 채널 설정</span></a>
+                </li>
+                <li class=" nav-item"><a class="d-flex align-items-center" href="./limit.html">
+                    <img src="./assets/images/icons/Icon_Alarm_Limit_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate font-weight-light ml-1 kor">임계치 설정</span></a>
+                </li>
+    
+    
+            </ul>
+    </div>
+    <div class="nav-bottom ">
+        <div class="divider mt-2">
+            <span class="kor">station은 chrome에<br> 최적화되어있습니다.</span>
+        </div>
+        <ul class="navigation navigation-main" data-menu="menu-navigation">
+
+        
+
+        </ul>
+    </div>
+</div>
+
+<div>
+    <div class="app-content content report-section" id="Report">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xl p-0 section-border">
+
+            <!-- Content Left Starts -->
+            <div class="content-detached content-left">
+
+
+                <!-- Detail starts -->
+                <div class="content-body">
+                    <section id="Report-title">
+                        <div class="row">
+                            <div class="col-md-12 col-12 ">
+                                <div class="card report-header">
+                                    <div class="row">
+                                        <div class="col-12 d-flex justify-content-between mb-2">
+                                            <div class="flex-column p-0">
+                                                <!--                                                <img src="assets/images/Icon_Report_W_L.png" height="64"-->
+                                                <!--                                                     width="64"/>-->
+                                                <div class="flex-column mb-2">
+
+                                                    <div class="flex-grow-1 pl-1 my-1">
+                                                        <div class="header-line mb-0"></div>
+                                                    </div>
+                                                    <div class="align-self-center ml-1">
+                                                        <h1 class=" text-white"><span>hourly</span> report</h1>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="d-inline-flex align-items-top pt-1 mr-2">
+                                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 48"
+                                                     height="32px">
+                                                    <defs>
+                                                        <style>.cls-1 {
+                                                            fill: none;
+                                                        }
+
+                                                        .cls-2 {
+                                                            fill: #fff;
+                                                        }</style>
+                                                    </defs>
+                                                    <title>logo_sigrrow</title>
+                                                    <g id="Layer_2" data-name="Layer 2">
+                                                        <g id="logos">
+                                                            <g id="logo_sigrrow">
+                                                                <rect class="cls-1" width="180" height="48"/>
+                                                                <path class="cls-2"
+                                                                      d="M17.91,3,40.46,13.71l-7.54,4.1L47.7,34.74A23,23,0,0,0,17.91,3Zm-6.06,27.2,2-24.86A23,23,0,0,0,26.45,47L19.17,25.75ZM68,22.64h-5A1.54,1.54,0,0,1,62,22.17,1.56,1.56,0,0,1,61.47,21a1.62,1.62,0,0,1,1.6-1.6h7.57v-2.7H63.07a4.34,4.34,0,0,0-4.3,4.3,4.3,4.3,0,0,0,4.3,4.3l5,0a1.57,1.57,0,0,1,1.13.45,1.55,1.55,0,0,1,.47,1.15,1.49,1.49,0,0,1-.47,1.12,1.52,1.52,0,0,1-1.13.48H59.28v2.7H68a4.3,4.3,0,1,0,0-8.6Zm10.24,8.6H81V16.72H78.27Zm0-16.86H81V11.76H78.27Zm16.25,2.36A7.27,7.27,0,0,0,87.26,24,7.22,7.22,0,0,0,99.09,29.6v1.66a4.35,4.35,0,0,1-1.34,3.21,4.44,4.44,0,0,1-3.23,1.34v2.7a7,7,0,0,0,5.14-2.13,6.94,6.94,0,0,0,2.13-5.12V24a7.27,7.27,0,0,0-7.27-7.27Zm3.23,10.48A4.57,4.57,0,0,1,90,24a4.57,4.57,0,1,1,9.13,0A4.35,4.35,0,0,1,97.75,27.22ZM108,24v7.25h2.71V24a4.54,4.54,0,0,1,4.55-4.57v-2.7A7.27,7.27,0,0,0,108,24Zm13.32,0v7.25H124V24a4.48,4.48,0,0,1,1.33-3.24,4.42,4.42,0,0,1,3.22-1.33v-2.7A7.27,7.27,0,0,0,121.33,24Zm20.56-7.27A7.27,7.27,0,0,0,134.64,24,7.27,7.27,0,1,0,147,18.85,7,7,0,0,0,141.89,16.72Zm3.22,10.48A4.56,4.56,0,0,1,137.34,24a4.45,4.45,0,0,1,1.34-3.24A4.58,4.58,0,0,1,146.47,24,4.33,4.33,0,0,1,145.11,27.2ZM173,16.72v8.74a3.09,3.09,0,0,1-3.07,3.08,3,3,0,0,1-2.18-.89,3,3,0,0,1-.9-2.17V16.72h-2.71v8.76A3.09,3.09,0,0,1,161,28.54,3.11,3.11,0,0,1,158,25.46V16.72h-2.7v8.74A5.8,5.8,0,0,0,161,31.24a5.56,5.56,0,0,0,4.45-2.07,5.79,5.79,0,0,0,10.21-3.71V16.72Z"/>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row ">
+
+                                        <div class="col-12 d-flex mb-2 ml-1 ">
+                                            <div class="py-1 px-2 bg-dark round justify-content-center align-items-center">
+
+                                                <!-- report target time -->
+                                                <div class="font-small-3"><span>2021.04.02 12:00:00 KST ~ 2021.04.02 12:59:59</span></div>
+                                                <!-- report target time -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <div class="mb-2 mb-xl-0 kor">
+                                            <div class="row float-left align-items-center p-0">
+                                                <div class="col-12 pl-3">
+                                                    <p class="font-small-3 text-lightblue ">이 리포트는 시그로우를 통해 자동 생성된
+                                                        문서입니다.<br/>
+                                                        <!--                                                        용마산역에서 더 자세한 내용을 확인하실 수 있습니다.-->
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class=" mb-2 mb-xl-0 pr-3">
+                                            <div class="flex-column">
+
+                                                <!-- client info -->
+                                                <h4 class="mb-50 d-flex justify-content-end align-items-center">
+                                                    <small class="notification-text text-grey mr-1">CLIENT : </small>
+                                                    <span class="font-weight-bolder">sample</span>
+                                                </h4>
+                                                <h5 class="mb-0 d-flex justify-content-end align-items-center">
+                                                    <small class="notification-text text-grey mr-1">Report Date
+                                                        :</small>
+                                                    <span class="font-weight-bold">2021.04.02 12:59:59</span>
+                                                </h5>
+                                                <!-- client info -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <script>
+                        /*<![CDATA[*/
+                        let currentGraphName = '';
+                        let yesterdayGraphName = "1\uC77C\uC804";
+                        let weekAgoGraphName = "7\uC77C\uC804";
+                        /*]]>*/
+                    </script>
+
+                    <div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="EC2 CPU Utilization">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_CPUUtilization_W.png" height="54" width="54">
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">EC2 CPU Utilization</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            EC2 Instance의 CPU 사용률을 나타냅니다.
+                                                        </h6>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                %
+                                                            </span>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="">
+                                            <table class="table_ec2_cpu table table-bordered table-striped kor">
+                                                <thead>
+                                                <tr>
+                                                    <th><small>자원명</small></th>
+                                                    <th class="font-small-1 font-weight-lighter px-0">
+                                                        <small>평균</small>
+                                                    </th>
+                                                    <th class="font-small-1 font-weight-lighter px-0">
+                                                        <small>최대값</small>
+                                                    </th>
+                                                    <th class="font-small-1 font-weight-lighter px-0">
+                                                        <small>1일전 동시간대 평균값</small>
+                                                        
+                                                        
+                                                    </th>
+                                                    <th class="font-small-1 font-weight-lighter px-0">
+                                                        <small>1일전 동시간대 최대값</small>
+                                                        
+                                                        
+                                                    </th>
+                                                    <th class="font-small-1 font-weight-lighter px-0">
+                                                        <small>7일전 동시간대 평균값</small>
+                                                        
+                                                        
+                                                    </th>
+                                                    <th class="font-small-1 font-weight-lighter px-0">
+                                                        <small>7일전 동시간대 최대값</small>
+                                                        
+                                                        
+                                                    </th>
+                                                </tr>
+                                                </thead>
+<!--                                                <tfoot class="flex-nowrap">-->
+<!--                                                <tr>-->
+<!--                                                    <th>자원전체의 평균</th>-->
+<!--                                                    <th></th>-->
+<!--                                                    <th></th>-->
+<!--                                                    <th></th>-->
+<!--                                                    <th></th>-->
+<!--                                                    <th></th>-->
+<!--                                                    <th></th>-->
+<!--                                                </tr>-->
+<!--                                                </tfoot>-->
+                                            </table>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let ec2cpu_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"i-0c7dcb99d3f96f237","current_avg":0.55,"current_max":0.83,"yesterday_avg":0.54,"yesterday_max":0.83,"week_avg":0.67,"week_max":0.0,"status":"none"},{"id":1,"time":"2021-04-02 12:00","resource":"i-0406dcf993eba8080","current_avg":0.33,"current_max":0.5,"yesterday_avg":0.3,"yesterday_max":0.49,"week_avg":0.51,"week_max":0.0,"status":"none"},{"id":2,"time":"2021-04-02 12:00","resource":"i-05f37da2a23764c55","current_avg":0.35,"current_max":0.67,"yesterday_avg":0.38,"yesterday_max":0.68,"week_avg":0.51,"week_max":0.0,"status":"none"},{"id":3,"time":"2021-04-02 12:00","resource":"i-0ba186bbe1f1c2ed5","current_avg":6.02,"current_max":6.89,"yesterday_avg":6.36,"yesterday_max":12.83,"week_avg":4.83,"week_max":0.0,"status":"none"},{"id":4,"time":"2021-04-02 12:00","resource":"i-0ac0bedd735fbbb55","current_avg":2.24,"current_max":2.37,"yesterday_avg":2.23,"yesterday_max":2.37,"week_avg":2.2,"week_max":0.0,"status":"none"},{"id":5,"time":"2021-04-02 12:00","resource":"i-0dd98197a8e22e870","current_avg":1.68,"current_max":2.2,"yesterday_avg":1.71,"yesterday_max":2.46,"week_avg":2.62,"week_max":0.0,"status":"none"},{"id":6,"time":"2021-04-02 12:00","resource":"i-09be095b9678b1647","current_avg":0.5,"current_max":0.85,"yesterday_avg":0.49,"yesterday_max":0.98,"week_avg":0.68,"week_max":0.0,"status":"none"},{"id":7,"time":"2021-04-02 12:00","resource":"i-01aa81efbf1fa3d88","current_avg":1.0,"current_max":1.0,"yesterday_avg":0.92,"yesterday_max":1.0,"week_avg":1.0,"week_max":0.0,"status":"none"},{"id":8,"time":"2021-04-02 12:00","resource":"i-072195b0da0ab8fec","current_avg":1.0,"current_max":1.0,"yesterday_avg":1.0,"yesterday_max":1.0,"week_avg":1.0,"week_max":0.0,"status":"none"},{"id":9,"time":"2021-04-02 12:00","resource":"i-040a9960c5819c439","current_avg":0.09,"current_max":0.33,"yesterday_avg":0.1,"yesterday_max":0.17,"week_avg":0.17,"week_max":0.0,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                
+                            </section>
+                            
+                            
+                            <section id="EC2_CPU_avg">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">avg.</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="kor" id="ec2cpu_avg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="EC2_CPU_max">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">max</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="ec2cpu_max"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            
+                            
+                            
+                            
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            
+                            
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="EC2 Status Check Failed">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_CPUUtilization_W.png" height="54" width="54">
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">EC2 Status Check Failed</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            EC2에서 사용하는 지표로 인스턴스가 정상인지를 판별하여 줍니다.<br>다만, 이 지표가 애플리케이션의 정상 여부는 판단하지 않습니다.
+                                                        </h6>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                count
+                                                            </span>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="card-header justify-content-between align-content-center mb-50">
+                                        </div>
+                                        <div class="card-body ">
+                                            <div class="">
+                                                <table class="table_ec2_scf table table-bordered table-striped kor">
+                                                    <thead>
+                                                    <tr>
+<!--                                                        <th>-->
+<!--                                                            일자-->
+<!--                                                        </th>-->
+                                                        <th>자원명</th>
+                                                        <th>
+                                                            count
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>1일전 count</span>
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>7일전 count</span>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let ec2scf_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"i-01aa81efbf1fa3d88","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":1,"time":"2021-04-02 12:00","resource":"i-0406dcf993eba8080","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":2,"time":"2021-04-02 12:00","resource":"i-040a9960c5819c439","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":3,"time":"2021-04-02 12:00","resource":"i-05f37da2a23764c55","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":4,"time":"2021-04-02 12:00","resource":"i-072195b0da0ab8fec","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":5,"time":"2021-04-02 12:00","resource":"i-09be095b9678b1647","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":6,"time":"2021-04-02 12:00","resource":"i-0ac0bedd735fbbb55","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":7,"time":"2021-04-02 12:00","resource":"i-0ba186bbe1f1c2ed5","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":8,"time":"2021-04-02 12:00","resource":"i-0c7dcb99d3f96f237","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"},{"id":9,"time":"2021-04-02 12:00","resource":"i-0dd98197a8e22e870","today_count":0.0,"yesterday_count":0.0,"week_count":0.0,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                
+                            </section>
+                            
+                            
+                            
+                            
+                            
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            
+                            
+                            
+                            
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            
+                            
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="ECS CPU Utilization">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_CPUUtilization_W.png" height="54" width="54">
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">ECS CPU Utilization</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            ECS 클러스터의 CPU 사용률을 나타냅니다.
+                                                        </h6>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                %
+                                                            </span>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="card-header justify-content-between align-content-center mb-50">
+                                        </div>
+
+                                        <div class="card-body ">
+                                            <div class="">
+                                                <table class="table_ecs_cpu table table-bordered table-striped kor">
+                                                    <thead>
+                                                    <tr>
+                                                        <th><small>자원명</small></th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>평균</small>
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>최대값</small>
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>1일전 동시간대 평균값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>1일전 동시간대 최대값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>7일전 동시간대 평균값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>7일전 동시간대 최대값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let ecscpu_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"arrow","current_avg":3.9,"current_max":4.44,"yesterday_avg":3.83,"yesterday_max":4.04,"week_avg":2.78,"week_max":0.0,"status":"none"},{"id":1,"time":"2021-04-02 12:00","resource":"commandcenter-cluster","current_avg":0.21,"current_max":0.36,"yesterday_avg":0.22,"yesterday_max":0.36,"week_avg":0.28,"week_max":0.0,"status":"none"},{"id":2,"time":"2021-04-02 12:00","resource":"databee-cluster","current_avg":0.42,"current_max":2.35,"yesterday_avg":0.42,"yesterday_max":1.49,"week_avg":1.0,"week_max":0.0,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                
+                            </section>
+                            
+                            
+                            
+                            
+                            <section id="ECS_CPU_avg">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">avg.</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="kor" id="ecscpu_avg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            <section id="ECS_CPU_max">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">max</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="ecscpu_max"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            
+                            
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            
+                            
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="ECS Memory Utilization">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_MemUtil_W.png" height="54" width="54">
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">ECS Memory Utilization</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            ECS 클러스터의 Memory 사용률을 나타냅니다.
+                                                        </h6>
+                                                        
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                %
+                                                            </span>
+                                                            
+                                                            
+                                                            
+                                                            
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="card-header justify-content-between align-content-center mb-50">
+                                        </div>
+                                        <div class="card-body ">
+                                            <div class="">
+                                                <table class="table_ecs_mem table table-bordered table-striped kor">
+                                                    <thead>
+                                                    <tr>
+                                                        <th><small>자원명</small></th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>평균</small>
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>최대값</small>
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>1일전 동시간대 평균값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>1일전 동시간대 최대값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>7일전 동시간대 평균값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>7일전 동시간대 최대값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let ecsmem_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"arrow","current_avg":26.38,"current_max":26.42,"yesterday_avg":25.97,"yesterday_max":25.97,"week_avg":20.44,"week_max":0.0,"status":"none"},{"id":1,"time":"2021-04-02 12:00","resource":"commandcenter-cluster","current_avg":3.96,"current_max":3.96,"yesterday_avg":3.91,"yesterday_max":3.91,"week_avg":3.9,"week_max":0.0,"status":"none"},{"id":2,"time":"2021-04-02 12:00","resource":"databee-cluster","current_avg":23.8,"current_max":23.8,"yesterday_avg":23.8,"yesterday_max":23.8,"week_avg":22.08,"week_max":0.0,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                    
+                                    
+                                    
+                                    
+                                
+                            </section>
+                            
+                            
+                            
+                            
+                            
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            
+                            <section id="ECS_MEM_avg">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">avg.</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="ecsmem_avg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section id="ECS_MEM_max">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">max</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="ecsmem_max"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            
+                            
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="RDS CPU Utilization">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_CPUUtilization_W.png" height="54" width="54">
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">RDS CPU Utilization</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            RDS의 CPU 사용률을 나타냅니다.
+                                                        </h6>
+                                                        
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                %
+                                                            </span>
+                                                            
+                                                            
+                                                            
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="card-header justify-content-between align-content-center mb-50">
+                                        </div>
+
+                                        <div class="card-body ">
+                                            <div class="">
+                                                <table class="table_rds_cpu table table-bordered table-striped kor">
+                                                    <thead>
+                                                    <tr>
+                                                        <th><small>자원명</small></th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>평균</small>
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>최대값</small>
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>1일전 동시간대 평균값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>1일전 동시간대 최대값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>7일전 동시간대 평균값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                        <th class="font-small-1 font-weight-lighter px-0">
+                                                            <small>7일전 동시간대 최대값</small>
+                                                            
+                                                            
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let rdscpu_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"sigrrow-statistics-db","current_avg":0.93,"current_max":1.0,"yesterday_avg":0.93,"yesterday_max":1.0,"week_avg":1.0,"week_max":0.0,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                    
+                                    
+                                    
+                                
+                            </section>
+                            
+                            
+                            
+                            
+                            
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            
+                            
+                            
+                            <section id="RDS_CPU_avg">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">avg.</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="kor" id="rdscpu_avg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            <section id="RDS_CPU_max">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">max</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div id="rdscpu_max"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="RDS Freeable Memory">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_FreeableMemory_W.png" height="54" width="54">
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">RDS Freeable Memory</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            RDS의 사용 가능한 메모리 용량을 나타냅니다.
+                                                        </h6>
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                Bytes
+                                                            </span>
+                                                            
+                                                            
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="card-header justify-content-between align-content-center mb-50">
+                                        </div>
+                                        <div class="card-body ">
+                                            <div class="">
+                                                <table class="table_rds_mem table table-bordered table-striped kor">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>자원명</th>
+                                                        <th>
+                                                            여유 메모리
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>1일전 여유 메모리</span>
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>7일전 여유 메모리</span>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let rdsmem_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"sigrrow-statistics-db","today_count":3.97488128E8,"yesterday_count":3.97062144E8,"week_count":4.07683072E8,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                    
+                                    
+                                
+                            </section>
+                            
+                            
+                            
+                            
+                            
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            
+                            
+                            
+                            
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            
+                            <section id="RDS_MEM_free">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">freeable memory</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="kor" id="rdsmem_free"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="RDS Database Connections">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_DBC_W.png" height="54" width="54">
+                                                        
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">RDS Database Connections</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            데이터베이스에서 사용되는 연결 개수입니다.<br>일반적으로 거의 변하지 않으며 DB에 연결하는 app connection pool 혹은<br> app 자체의 증감이 일어날때 변화될 수 있습니다.
+                                                        </h6>
+                                                        
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                count
+                                                            </span>
+                                                            
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="card-header justify-content-between align-content-center mb-50">
+                                        </div>
+                                        <div class="card-body ">
+                                            <div class="">
+                                                <table class="table_rds_dc table table-bordered table-striped kor">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>자원명</th>
+                                                        <th>
+                                                            연결 수
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>1일전 연결 수</span>
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>7일전 연결 수</span>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let rdsdc_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"sigrrow-statistics-db","today_count":91.0,"yesterday_count":91.0,"week_count":70.0,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                
+                            </section>
+                            <section id="RDS_DC_Bar">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">database
+                                                        connections</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="kor" id="rdsdc_bar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            
+                            
+                            
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            
+                            
+                            
+                            
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            
+                            
+                        </div>
+                        <div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <div class="divider divider-dashed">
+                                <div class="divider-text"><i data-feather="check"></i></div>
+                            </div>
+                            <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                            <section id="RDS Free Storage Space">
+                                <div class="row">
+                                    <div class="content-header-left col-md-12 col-12 mb-1">
+                                        <div class="row">
+                                            <div class="d-flex flex-row justify-content-start col-12">
+                                                <div class="float-left mb-0">
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <img src="assets/images/services/Icon_FSS_W.png" height="54" width="54">
+                                                        
+                                                    
+                                                </div>
+                                                <div class="ml-1 mr-auto">
+                                                    <h2 class="mb-0 text-white mb-1">RDS Free Storage Space</h2>
+                                                    
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        
+                                                        <h6 class="kor text-grey">
+                                                            데이터베이스에서 사용 가능한 하드디스크 공간입니다.<br>데이터의 저장에 따라 점진적으로 감소하는 지표이지만, 데이터 삭제 등으로 증가할 수 있습니다.
+                                                        </h6>
+                                                    
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    <!-- right top -->
+                                                    <span class=" font-small-3 mr-25 mb-0 ml-1 text-truncate kor"><small>단위:</small>
+                                                        
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            
+                                                            <span class="badge badge-light-primary font-medium-1 font-weight-bold pb-50 mx-50">
+                                                                Bytes
+                                                            </span>
+                                                        
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <div class="card col-12">
+                                        <div class="card-header justify-content-between align-content-center mb-50">
+                                        </div>
+
+                                        <div class="card-body ">
+                                            <div class="">
+                                                <table class="table_rds_fss table table-bordered table-striped kor">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>자원명</th>
+                                                        <th>
+                                                            여유 공간
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>1일전 여유 공간</span>
+                                                        </th>
+                                                        <th>
+                                                            
+                                                            <span>7일전 여유 공간</span>
+                                                        </th>
+                                                    </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <script>
+                                            /*<![CDATA[*/
+                                            let rdsfss_data = (
+                                                [{"id":0,"time":"2021-04-02 12:00","resource":"sigrrow-statistics-db","today_count":1.01946720256E11,"yesterday_count":1.01950930944E11,"week_count":1.01980975104E11,"status":"none"}]
+                                            );
+                                            /*]]>*/
+                                        </script>
+                                    </div>
+                                    
+                                
+                            </section>
+                            
+                            <section id="RDS_FSS_Line">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">
+                                                <div>
+                                                    <h4 class="card-title font-weight-bolder ml-2 mt-1">free storage space</h4>
+                                                </div>
+                                                <div class="d-flex align-items-center mt-md-0 mt-1">
+                                                    <!-- right top content -->
+                                                </div>
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="kor" id="rdsfss_bar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            
+                            
+                            
+                            <!-- ECS_CPU_avg Bar Chart Ends -->
+
+                            <!-- ECS_CPU_max Bar Chart Starts -->
+                            
+                            
+                            
+                            
+                            <!-- RDS_CPU_avg Bar Chart Ends -->
+
+                            <!-- RDS_CPU_max Bar Chart Starts -->
+                            
+                            
+                        </div>
+                    </div>
+
+                    <!-- RDS_DC Bar Chart Starts -->
+<!--                    <section id="RDS_DC_Bar">-->
+<!--                        <div class="row">-->
+<!--                            <div class="col-12">-->
+<!--                                <div class="card">-->
+<!--                                    <div class="card-header d-flex flex-sm-row flex-column justify-content-md-between align-items-start justify-content-start">-->
+<!--                                        <div>-->
+<!--                                            <h4 class="card-title font-weight-bolder ml-2 mt-1">database-->
+<!--                                                connections</h4>-->
+<!--                                        </div>-->
+<!--                                        <div class="d-flex align-items-center mt-md-0 mt-1">-->
+<!--                                            &lt;!&ndash; right top content &ndash;&gt;-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                    <div class="card-body">-->
+<!--                                        <div class="kor" id="rdsdc_bar"></div>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </section>-->
+                    <!-- RDS_DC Bar Chart Ends -->
+<!--                    <script src="assets/js/data.js"></script>-->
+
+                    <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+                    <div class="divider divider-dashed">
+                        <div class="divider-text"><i data-feather="check"></i></div>
+                    </div>
+                    <!-- ------------------------------------------------------------------  DIVIDER DASHED -->
+
+
+                </div>
+                <!-- Detail ends -->
+
+            </div>
+            <!-- Content Left Ends -->
+
+            <!-- Content Left Starts -->
+            <div class="sidebar-detached sidebar-right ">
+                <div class="sidebar">
+                    <div class="my-2 my-lg-0">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="app-assets/vendors/js/charts/apexcharts.min.js"></script>
+    <script src="app-assets/vendors/js/extensions/toastr.min.js"></script>
+    <!-- END: Page Vendor JS-->
+
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+
+
+    <script src="app-assets/vendors/js/tables/datatable/vfs_fonts.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/buttons.html5.min.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/buttons.print.min.js"></script>
+    <script src="app-assets/vendors/js/tables/datatable/dataTables.rowGroup.min.js"></script>
+    <script src="app-assets/vendors/js/pickers/flatpickr/flatpickr.min.js"></script>
+    <script src="assets/js/report_detail.js"></script>
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+
+        })
+    </script>
+</div>
+
+<div>
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <footer class="footer footer-fixed footer-light">
+        <div class="d-flex justify-content-between">
+            <div class="order-sm-2 mb-0">
+            <span class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
+                    class="ml-25" href="https://sigrrow.com" target="_blank">sigrrow</a><span
+                    class="d-none d-sm-inline-block">, All rights Reserved</span></span>
+            </span>
+            </div>
+            <div class="order-sm-1 mb-0">
+            <span class="d-flex">
+
+                <a class="font-small-2 text-grey kor mx-1 small" href="./terms.html">이용약관</a>
+                <a class="font-small-2 text-grey kor mx-1 small" href="./privacy.html">개인정보처리방침</a>
+                <span class="kor small">sigrrow | 사업자번호 : 421-54-00480 | 대표이사 : 이주영 | contact@sigrrow.io | 통신판매업신고번호 : 2021-용인수지-0526 | 경기도 용인시 수지구 현암로 107, 402호</span>
+            </span>
+            </div>
+        </div>
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.min.js"></script>
+    <script src="app-assets/js/core/app.min.js"></script>
+
+    <!-- END: Theme JS-->
+</div>
+
+</body>
+</html>

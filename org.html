@@ -1,0 +1,537 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading dark-layout" data-layout="dark-layout" data-textdirection="ltr">
+
+<head>
+    <!-- config fragment 사용 -->
+    
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+        <meta name="description"
+              content="sigrrow station">
+        <meta name="keywords"
+              content="sigrrow station">
+        <title>sigrrow | station</title>
+        <link rel="apple-touch-icon" href="">
+        <link rel="shortcut icon" type="image/x-icon" href="">
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png">
+        <link rel="manifest" href="assets/images/favicon/site.webmanifest">
+        <link rel="mask-icon" href="assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="apple-mobile-web-app-title" content="sigrrow station">
+        <meta name="application-name" content="sigrrow station">
+        <meta name="msapplication-TileColor" content="#2b5797">
+        <meta name="theme-color" content="#ffffff">
+        <!-- favicon -->
+
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZTR7CC6SQX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-ZTR7CC6SQX');
+        </script>
+
+        <!-- Montserrat-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600"
+              rel="stylesheet">
+        <!-- Montserrat-->
+
+        <!-- Noto Sans KR -->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"
+              rel="stylesheet">
+        <!-- Noto Sans KR -->
+
+        <!-- BEGIN: Vendor CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/vendors.min.css">
+        <!-- END: Vendor CSS-->
+
+        <!-- BEGIN: Theme CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/bootstrap-extended.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/colors.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/components.min.css">
+        <link rel="stylesheet" type="text/css" href="app-assets/css/themes/dark-layout.min.css">
+
+
+        <!-- BEGIN: Page CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/core/menu/menu-types/vertical-menu.css">
+        <!-- END: Page CSS-->
+
+        <!-- BEGIN: Custom CSS-->
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <!-- BEGIN: Vendor JS-->
+        <script src="app-assets/vendors/js/vendors.min.js"></script>
+        <!-- BEGIN Vendor JS-->
+
+        
+        
+    
+
+        <meta name="_csrf" content="ffb9cc04-28c2-4b10-a58a-61427ca0530f">
+        <meta name="_csrf_header" content="X-CSRF-TOKEN">
+        <link rel="stylesheet" type="text/css" href="app-assets/vendors/css/extensions/toastr.min.css">
+        <!-- BEGIN: Table CSS-->
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/responsive.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/buttons.bootstrap4.min.css">
+        <link rel="stylesheet" type="text/css"
+              href="app-assets/vendors/css/tables/datatable/rowGroup.bootstrap4.min.css">
+        <!-- END: Table CSS-->
+        <link rel="stylesheet" type="text/css" href="app-assets/css/plugins/forms/form-validation.min.css">
+    
+
+
+        <script src="app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+        <script src="app-assets/vendors/js/extensions/toastr.min.js"></script>
+        <!-- END: Page Vendor JS-->
+
+        <!-- BEGIN: Page Vendor JS-->
+        <script src="app-assets/vendors/js/tables/datatable/jquery.dataTables.min.js"></script>
+        <script src="app-assets/vendors/js/tables/datatable/datatables.bootstrap4.min.js"></script>
+        <script src="app-assets/vendors/js/tables/datatable/dataTables.responsive.min.js"></script>
+        <script src="app-assets/vendors/js/tables/datatable/responsive.bootstrap4.js"></script>
+        <script src="app-assets/vendors/js/tables/datatable/datatables.checkboxes.min.js"></script>
+        <script src="app-assets/vendors/js/tables/datatable/datatables.buttons.min.js"></script>
+        <!-- END: Page Vendor JS-->
+    
+</head>
+<body class="vertical-layout vertical-menu-modern  navbar-sticky footer-fixed fixed-footer" data-open="click" data-menu="vertical-menu-modern" data-col="">
+<nav class="header-navbar navbar navbar-expand-lg align-items-center navbar-dark navbar-shadow fixed-top">
+    <div class="navbar-container d-flex content">
+
+        <ul class="nav navbar-nav align-items-center  ml-auto">
+
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./notice.html">공지사항</a>
+            </li>
+            <li class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./contact.html">문의하기</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text" href="./org.html">사용자관리</a>
+            </li>
+
+            <li th:if="${user.getUserKey().isAdmin()}" class="nav-item mx-2 dropdown dropdown-user">
+                <!-- <img src="assets/images/Icon_Chart_W_S.png" height="32" width="32"/></li>-->
+                <a class="nav-link nav-top-text dropdown-toggle dropdown-user-link" id="dropdown-payment"
+                   href="javascript:alert('준비중입니다.')"
+                   data-toggle="" aria-haspopup="true" aria-expanded="true">결제정보</a>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="d-flex justify-content-between align-items-center kor dropdown-toggle" id="user-manage" data-toggle="dropdown">
+                    <img class="mr-1" src="./assets/images/Icon_User_W_S.png" height="32" width="32"/>
+                    <div class="d-flex flex-column">
+                        <span class="text-white font-small-2 font-weight-lighter ">환영합니다!</span>
+                        <span class=" text-white ">
+                            <small>관리자</small>
+                            테스트 사용자<small>님</small>
+                        </span>
+                    </div>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="user-manage">
+                    <a class="dropdown-item" href="./user.html"><span class="kor">정보 수정</span></a>
+                    <a class="dropdown-item" href="./index.html"><span class="kor">로그아웃</span></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="main-menu menu-fixed menu-dark menu-accordion" data-scroll-to-active="true"> <!-- menu-shadow -->
+    <div class="navbar-header">
+        <ul class="nav navbar-nav flex-row ">
+
+
+            <li class=" nav-item">
+                <div class="d-flex pt-1 align-items-center ">
+                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>
+                </div>
+            </li>
+
+
+
+        </ul>
+    </div>
+    <div class="shadow-bottom"></div>
+    <div class="main-menu-content">
+        <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
+            <li class=" navigation-header">
+                <span data-i18n="Alerts">Alerts</span>
+            </li>
+
+            <li class=" nav-item">
+                <a class="d-flex align-items-center" href="./alert.html">
+                    <img src="assets/images/icons/Icon_Alert_History_W_S.png" height="32" width="32"/>
+                    <span class="menu-title text-truncate ml-1">Alert History</span>
+                </a>
+            </li>
+
+            <li class=" navigation-header">Detailed Reports
+            </li>
+
+<!--            <li class=" nav-item">-->
+<!--                <a class="d-flex align-items-center" href="/report_menu?term=monthly">-->
+<!--                    <img src="assets/images/icons/Icon_Report_Monthly_W_S.png" height="32" width="32"/>-->
+<!--                    <span class="menu-title text-truncate">Monthly Report</span>-->
+<!--                </a>-->
+<!--            </li>-->
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_weekly.html">
+                <img src="./assets/images/icons/Icon_Report_Weekly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Weekly Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_daily.html">
+                <img src="./assets/images/icons/Icon_Report_Daily_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncateml ml-1">Daily Report</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./report_hourly.html">
+                <img src="./assets/images/icons/Icon_Report_Hourly_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate ml-1">Hourly Report</span></a>
+            </li>
+
+
+            <li class=" navigation-bottom-header mt-1">Preferences</li>
+
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./channel.html">
+                <img src="./assets/images/icons/Icon_Alarm_Channel_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">알람 채널 설정</span></a>
+            </li>
+            <li class=" nav-item"><a class="d-flex align-items-center" href="./limit.html">
+                <img src="./assets/images/icons/Icon_Alarm_Limit_W_S.png" height="32" width="32"/>
+                <span class="menu-title text-truncate font-weight-light ml-1 kor">임계치 설정</span></a>
+            </li>
+
+
+        </ul>
+    </div>
+    <div class="nav-bottom ">
+        <div class="divider mt-2">
+            <span class="kor">station은 chrome에<br> 최적화되어있습니다.</span>
+        </div>
+        <ul class="navigation navigation-main" data-menu="menu-navigation">
+
+            <!--            <li class=" nav-item">-->
+            <!--                <div class="d-flex align-items-center ml-3 mt-2">-->
+            <!--                    <img src="assets/images/logo/logo_sigrrow.png" height="32"/>-->
+            <!--                </div>-->
+            <!--            </li>-->
+
+        </ul>
+    </div>
+</div>
+
+<div>
+
+    <!-- user & setups  -->
+    <div class="app-content content report-section" id="Report">
+        <div class="content-overlay"></div>
+        <div class="header-navbar-shadow"></div>
+        <div class="content-wrapper container-xl p-0 section-border">
+
+            <!-- Content Left Starts -->
+            <div class="content-detached content-left">
+
+                <!-- Detail starts -->
+                <div class="content-body">
+
+                    <!-- user management start -->
+                    <section class="user-management">
+                        <div class="row">
+                            <div class="content-header-left col-md-12 col-12 mb-1">
+                                <div class="row">
+                                    <div class="d-flex flex-row justify-content-start col-12">
+                                        <div class="float-left mb-0">
+                                            <img src="assets/images/icons/Icon_ManageUsers_W.png" height="54"
+                                                 width="54"/>
+                                        </div>
+                                        <div class="ml-1 mr-auto">
+                                            <h2 class="mb-0 text-white mb-1 kor">사용자 관리</h2>
+
+                                        </div>
+                                        <div class="d-flex align-items-center">
+                                            <!-- right top -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-body">
+
+                                <!-- add user -->
+                                <div class="row ">
+                                    <div class="col-12 kor">
+                                        <h6 class="pb-1 mx-1 mb-0 font-medium-2">
+                                            <i data-feather="user" class="font-medium-3 mr-25"></i>
+                                            <span class="align-middle">사용자 추가</span>
+                                        </h6>
+                                        <form class="add-user-form">
+                                            <div class="row kor">
+                                                <!-- email -->
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <input
+                                                                type="text"
+                                                                class="form-control"
+                                                                id="add-email"
+                                                                name="add-email"
+                                                                placeholder=""
+                                                                aria-describedby="add-email"
+                                                                tabindex="1"
+                                                                autofocus
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <button type="button" onclick="javascript:confirmInvite()"
+                                                            class="btn btn-block btn-primary d-flex mb-1 mb-sm-0 mr-0 mr-sm-1 kor">
+                                                        <i data-feather="user-plus" class="mr-1 "></i>사용자 추가
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- alert email success  // only shown when email sent-->
+                                <div class="row mb-1 d-none" id="email_success_1">
+                                    <div class="col-12 " id="alert-mail-sent">
+                                        <div class="alert alert-success mb-0" role="alert">
+                                            <div class="alert-body kor">
+                                                <i class="mr-1" data-feather="mail"></i>
+                                                <span class="">초대 메일이 발송되었습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <!-- Table user list -->
+                                <div class="row mb-2">
+                                    <div class="col-12">
+                                        <div class="table-responsive kor">
+                                            <h6 class="pb-1 mx-1 mb-0 font-medium-2">
+                                                <i data-feather="users" class="font-medium-3 mr-25"></i>
+                                                <span class="align-middle">사용자 리스트</span>
+                                            </h6>
+                                            <table class="table_user_list table table-striped table-borderless">
+                                                <thead class="thead-light">
+                                                <tr>
+                                                    <th>id</th>
+                                                    <th>ID (email)</th>
+                                                    <th>사용자명</th>
+                                                    <th>부서</th>
+                                                    <th>상태</th>
+                                                    <th>권한</th>
+                                                    <th>변경</th>
+                                                </tr>
+                                                </thead>
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal for auth permission -->
+<!--                                data-backdrop = prevent closing modal when click outside of it -->
+                                <div
+                                        class="modal fade text-left modal-primary "
+                                        id="add-permission"
+                                        tabindex="-1"
+                                        role="dialog"
+                                        data-backdrop="true"
+                                        aria-labelledby="modal-add-permission"
+                                        aria-hidden="true"
+                                >
+                                    <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title kor" id="modal-add-permission">관리자 권한 위임</h5>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+
+                                            <form class="auth-admin" action="index.html" method="POST">
+                                            <div class="modal-body kor">
+
+
+                                                <!-- add permission modal table starts -->
+                                                <table class=" form-group table_user_role table table-striped table-borderless">
+                                                    <thead class="thead-light">
+                                                    <tr class="kor">
+                                                        <th>id</th>
+                                                        <th>email</th>
+                                                        <th>사용자명</th>
+                                                        <th>부서</th>
+                                                        <th>권한</th>
+                                                        <th>상태</th>
+                                                    </tr>
+                                                    </thead>
+
+                                                </table>
+                                                <!-- add permission modal table ends -->
+
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary kor" id="auth-target" value=""
+                                                        onclick="auth_submit()"
+                                                        data-dismiss="modal">확인
+                                                </button>
+                                                <button type="button" class="btn btn-danger kor" id="auth-cancel" value=""
+                                                        onclick=""
+                                                        data-dismiss="modal">취소
+                                                </button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- add user -->
+                                <div class="row mb-1">
+                                    <div class="col-12">
+                                        <form class="add-user-form-b">
+                                            <div class="row kor">
+                                                <!-- email -->
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <input
+                                                                type="text"
+                                                                class="form-control"
+                                                                id="add-email-b"
+                                                                name="add-email-b"
+                                                                placeholder=""
+                                                                aria-describedby="add-email-b"
+                                                                tabindex="1"
+                                                                autofocus
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div class="col-3">
+                                                    <button type="button" onclick="javascript:confirmInviteB()"
+                                                            class="btn btn-block btn-primary d-flex mb-1 mb-sm-0 mr-0 mr-sm-1 kor">
+                                                        <i data-feather="user-plus" class="mr-1 "></i>사용자 추가
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <!-- alert email success -->
+                                <div class="row mb-1 d-none" id="email_success_2">
+                                    <div class="col-12 " id="alert-mail-sent-b">
+                                        <div class="alert alert-success mb-0" role="alert">
+                                            <div class="alert-body kor">
+                                                <i class="mr-1" data-feather="mail"></i>
+                                                <span class="">초대 메일이 발송되었습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- warning message -->
+                                <div class="mb-1" id="">
+                                    <div class="alert alert-warning mb-0" role="alert">
+                                        <div class="alert-body kor">
+                                            <div class="d-flex flex-row align-items-center">
+                                                <i class="mr-1" data-feather="info"></i>
+                                                <span class="mr-1">관리자는 1개의 아이디만 설정할 수 있습니다.<br/>
+                                                              일반 사용자를 가진 조직의 관리자는 탈퇴할 수 없습니다.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </section>
+                    <!-- user management ends -->
+
+
+                    <div class="clearfix my-5"></div>
+
+
+                </div>
+                <!-- Detail ends -->
+
+            </div>
+            <!-- Content Left Ends -->
+
+            <!-- Content Right Starts -->
+            <div class="sidebar-detached sidebar-right bg-white">
+                <div class="sidebar bg-primary">
+                    <div class="my-2 my-lg-0 bg-primary" style="width:100%; height:100%;">
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <script src="assets/js/user_manager.js"></script>
+    <script>
+        $(window).on('load', function () {
+            if (feather) {
+                feather.replace({
+                    width: 14,
+                    height: 14
+                });
+            }
+
+        })
+    </script>
+</div>
+
+<div>
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+    <footer class="footer footer-fixed footer-light">
+        <div class="d-flex justify-content-between">
+            <div class="order-sm-2 mb-0">
+            <span class="clearfix mb-0"><span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a
+                    class="ml-25" href="https://sigrrow.com" target="_blank">sigrrow</a><span
+                    class="d-none d-sm-inline-block">, All rights Reserved</span></span>
+            </span>
+            </div>
+            <div class="order-sm-1 mb-0">
+            <span class="d-flex">
+
+                <a class="font-small-2 text-grey kor mx-1 small" href="/menuTerms">이용약관</a>
+                <a class="font-small-2 text-grey kor mx-1 small" href="/menuPrivacy">개인정보처리방침</a>
+                <span class="kor small">sigrrow | 사업자번호 : 421-54-00480 | 대표이사 : 이주영 | contact@sigrrow.io | 통신판매업신고번호 : 2021-용인수지-0526 | 경기도 용인시 수지구 현암로 107, 402호</span>
+            </span>
+            </div>
+        </div>
+    </footer>
+    <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
+
+
+    <!-- BEGIN: Theme JS-->
+    <script src="app-assets/js/core/app-menu.min.js"></script>
+    <script src="app-assets/js/core/app.min.js"></script>
+
+    <!-- END: Theme JS-->
+</div>
+
+</body>
+</html>
